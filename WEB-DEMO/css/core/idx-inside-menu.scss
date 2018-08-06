@@ -1,0 +1,40 @@
+/*----------------------------------------------------------------------------------*/
+/* Inside Menu
+/*----------------------------------------------------------------------------------*/
+.idx-nav-int-content{
+	white-space: nowrap;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	background: #e6992e;
+	&::-webkit-scrollbar {
+		display: none; 
+	}
+	nav{
+		width: 100%;
+		ul{
+			height: 40px;
+			display: flex;
+			li{
+				display: flex;
+				width: auto;
+				height: 100%;
+				align-items: center;
+				justify-content: center;
+				padding: 0 15px;
+				font-family: $opensans;
+				font-size: 12px;
+				font-weight: 700;
+				text-transform: uppercase;
+				a{
+					color: rgba(0,0,0,0.4);
+					&:hover,
+					&.active,
+					&:active{
+						color: #FFF;
+					}
+				}
+			}
+		}
+	}
+}

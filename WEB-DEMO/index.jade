@@ -1,0 +1,196 @@
+doctype html
+html(lang='en')
+	head
+		title Home | Flexidx
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+		meta(name="apple-mobile-web-app-capable", content="yes")
+		meta(name="apple-mobile-web-app-status-bar-style", content="#4b4b4b")
+		meta(name="theme-color", content="#4b4b4b")
+		meta(name="msapplication-navbutton-color", content="#4b4b4b")
+		link(rel="stylesheet", href="http://betalg.staging.wpengine.com/wp-content/plugins/idx-boost/css/main.css")
+		link(rel="stylesheet", href="css/style.css")
+		link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800")
+
+	body
+		//Main content
+		main.idx-main-hd
+			article
+				h1 Burlingame
+				h2 Timeless Elegance, Gracious Charm, Top Schools
+				p Burlingame is one of the few areas that has maintained its gracious charm and timeless elegance over the decades. A favorite among families, Burlingame’s two main shopping areas, Burlingame Avenue and Broadway, attract a wide variety of shoppers discovering its boutiques, restaurants, dessert places, and clothing stores. Home to fresh farmer’s markets every Sunday morning in the summer and fall, jazz concerts in Washington Park, and a yearly Art in the Park fair, Burlingame is a wonderful place to start a family or retire later in life, and is well equipped for both!
+				ul
+					li
+						span 28,098
+						|Population
+					li
+						span 6,261
+						|Homes
+					li
+						span $1.95M
+						|Median Sale Price
+					li
+						span $2.08M
+						|Average Sale Price
+			img(src="http://palaramoni.com/wp-content/uploads/2018/04/inspiration-miami-homes-design-elegant-home-show-ideas-9316-catmando-luxury.jpg").idx-layer-img
+
+		//Nav interno
+		.idx-nav-int-content
+			nav
+				ul
+					li: a(href="#") Overview
+					li: a(href="#") Neighborhoods
+					li: a(href="#") Data & Market Conditions
+					li: a(href="#") Schools & History
+					li: a(href="#") Residents
+					li: a(href="#") Properties
+					li: a(href="#") Other Communities
+
+		//Property information
+		section
+			h2.idx-hidden-title Property information
+			.idx-wrap
+				.idx-wrap-slider
+				.idx-wrap-media
+				.idx-wrap-paragraph
+
+		//Neighborhood list
+		section
+			h2.idx-st-title Neighborhoods
+			.idx-wrap
+				.idx-basic-list
+					- for(b = 0; b < 12; b++)
+						.idx-basic-item
+							.idx-grid-ng
+								.idx-grid-ng-img
+									img(src="//retsimages.s3.amazonaws.com/35/A10487435_1.jpg", alt="Burlingables, Timeless Elegance, Gracious Charm, Top Schools", title="Burlingables")
+									.idx-grid-ng-information
+										h2 Burlingables
+										h3 Timeless Elegance, Gracious Charm, Top Schools
+								.idx-grid-ng-btn
+									a(href="#") view
+								.idx-grid-tag $1.65M - $2.75M
+				button.idx-btn-sm: span View more neighborhoods
+		
+		//Property Data information
+		section
+			h2.idx-st-title Data & Market Conditions
+			.idx-wrap
+				.idx-table-fx
+					ul.idx-table-header
+						li
+							.th-item Single Family Homes
+							.th-item 6,261
+					ul.idx-table-body
+						li
+							.td-item 1 Bedroom Homes
+							.td-item 29
+						li
+							.td-item 2 Bedroom Homes
+							.td-item 1,339
+						li
+							.td-item 3 Bedroom Homes
+							.td-item 2,814
+						li
+							.td-item 4 Bedroom Homes
+							.td-item 1,569
+						li
+							.td-item 5+ Bedroom Homes
+							.td-item 510
+						li.td-item-lb
+							.td-item Condos/Townhomes
+							.td-item 828
+						li.td-item-lb
+							.td-item Duplex
+							.td-item 239
+
+				.idx-table-fx
+					ul.idx-table-header
+						li
+							.th-item Description
+							.th-item 2016
+							.th-item 2017
+					ul.idx-table-body
+						li
+							.td-item Number of Sales
+							.td-item 211
+							.td-item 216
+						li
+							.td-item Percent List Price Received
+							.td-item 106.4%
+							.td-item 109.4%
+						li
+							.td-item Median Sales Price
+							.td-item $1,880,000
+							.td-item $1,919,000
+						li
+							.td-item Average Sale Price
+							.td-item $1,921,000
+							.td-item $1,975,000
+						li
+							.td-item Lowest Sale Price
+							.td-item $550,000
+							.td-item $705,000
+						li
+							.td-item Highest Sale Price
+							.td-item $4,588,000
+							.td-item $5,100,000
+				
+				.idx-graph
+					.idx-wrap-canvas
+						canvas#chart1
+					.idx-wrap-legend
+						h2.idx-graph-title Average Days on Market
+						span.idx-graph-detail Days
+
+				.idx-graph
+					.idx-wrap-canvas
+						canvas#chart2
+					.idx-wrap-legend
+						h2.idx-graph-title Home Sales
+						span.idx-graph-detail Sales
+
+				.idx-graph
+					.idx-wrap-canvas
+						canvas#chart3
+					.idx-wrap-legend
+						h2.idx-graph-title Sale Price to List Price
+						span.idx-graph-detail Percent of list price
+
+		//Property History
+		section
+			h2.idx-st-title Schools & history
+			.idx-wrap
+				article
+					h3 Schools
+					p If you’re looking to buy a home in Burlingame in a particular public elementary school district, this unique google map will help you identify the geographic boundaries for enrollment of each school. This map was assembled from data from the school district website (handy for quickly identifying what school a particular address is assigned to), and is reliable but not guaranteed.
+					
+					p If you have more specific questions about schools in Burlingame, please contact Raziel. To watch Raziel’s Burlingame Buzz videos featuring the strengths of each school and interviews with each of the principals, click here. To verify enrollment in the event it is impacted, contact the Burlingame School District. To view detailed information about each preschool in Burlingame, click here.
+
+					p All addresses in Burlingame go to Burlingame High School (In 2003, the district lines were redrawn to incorporate this change). Burlingame High is within the San Mateo Union High School District (not the Burlingame School District, which includes all five public elementary schools and BIS). To verify enrollment information, please contact the High School District.
+
+					.idx-helpful-links
+						h3 Helpful Links
+						ul
+							li a(href="#") Burlingame School District Website
+							li a(href="#") School Videos and Pricipal Interviews
+		
+		//More Properties 
+		section
+			h2.idx-st-title Other Communities
+			.idx-wrap
+				.idx-pt-slider
+					- for(b = 0; b < 12; b++)
+						.idx-item-pt-slider
+							.idx-grid-ng
+								.idx-grid-ng-img
+									img(src="//retsimages.s3.amazonaws.com/35/A10487435_1.jpg", alt="Burlingables, Timeless Elegance, Gracious Charm, Top Schools", title="Burlingables")
+									.idx-grid-ng-information
+										h2 Burlingables
+										h3 Timeless Elegance, Gracious Charm, Top Schools
+								.idx-grid-ng-btn
+									a(href="#") view
+								.idx-grid-tag $1.65M - $2.75M
+
+
+		script(type="text/javascript", src="../js/jquery-3.1.1.min.js")
