@@ -16,14 +16,12 @@
 
 		h1{
 			font-size: 28px;
-			font-family: $opensans;
 			color: #FFF;
 			font-weight: 700;
 		}
 
 		h2{
 			font-size: 12px;
-			font-family: $opensans;
 			font-weight: 700;
 			color: #6b83b3;
 			text-transform: uppercase;
@@ -32,7 +30,6 @@
 
 		p{
 			color: #FFF;
-			font-family: $opensans;
 			font-size: 14px;
 			line-height: 1.6;
 			margin: 10px 0;
@@ -47,7 +44,6 @@
 				width: auto;
 				min-width: 50%;
 				flex-grow: 1;
-				font-family: $opensans;
 				font-size: 12px;
 				color: #6b83b3;
 				text-transform: uppercase;
@@ -58,7 +54,6 @@
 					font-size: 32px;
 					text-transform: none;
 					color: #fff;
-					font-family: $opensans;
 				}
 			}
 		}

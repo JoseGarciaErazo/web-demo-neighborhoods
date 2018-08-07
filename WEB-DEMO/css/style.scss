@@ -1,40 +1,8 @@
-$opensans : 'Open Sans', sans-serif;
-.idx-hidden-title{
-	overflow:hidden;
-	height: 0;
-	width: 0;
-}
-
-.idx-st-title{
-	position: relative;
-	font-size: 12px;
-	font-weight: 700;
-	text-transform: uppercase;
-	font-family: $opensans;
-	margin: 15px auto 30px auto;
-	width: 94%;
-	&:before{
-		content: "";
-		border-width: 0;
-		border-style: solid;
-		border-color: #dbdad6;
-
-    display: block;
-    position: relative;
-    bottom: -27px;
-    left: 0;
-    border-bottom: 2px solid #e6e4df;
-    width: 80px;
-	}
-}
-
-.idx-wrap{
-	width: 96%;
-	margin: 0 auto;
-	position: relative;
-}
-
+@import '../fonts/icons/style.css';
+@import 'core/reset.scss';
+@import 'core/idx-general.scss';
 @import 'core/idx-colors.scss';
 @import 'core/idx-main.scss';
 @import 'core/idx-inside-menu.scss';
 @import 'core/idx-grid-card.scss';
+@import 'core/idx-table.scss';

@@ -1,0 +1,100 @@
+/*----------------------------------------------------------------------------------*/
+/* General
+/*----------------------------------------------------------------------------------*/
+$opensans : 'Open Sans', sans-serif;
+$web-icons: 'ng-icons' !important;
+
+.idx-bg-gray{
+	background: #e6e4df;
+	.idx-st-title{
+		&:before{
+	  	border-color: #cccbc6;
+	  }
+	}
+}
+
+body{
+	background-color: #fff;
+	color: #333;
+	font-size: 16px;
+	font-family: $opensans !important;
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
+	overflow-x: hidden;
+}
+
+.idx-hidden-title{
+	overflow:hidden;
+	height: 0;
+	width: 0;
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Título sección
+/*----------------------------------------------------------------------------------*/
+.idx-st-title{
+	position: relative;
+	font-size: 12px;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin: 15px auto 30px auto;
+	width: 94%;
+	&:before{
+		content: "";
+		border-width: 0;
+		border-style: solid;
+		border-color: #dbdad6;
+    display: block;
+    position: relative;
+    bottom: -27px;
+    left: 0;
+    border-bottom: 2px solid #e6e4df;
+    width: 80px;
+	}
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Contendor de sección
+/*----------------------------------------------------------------------------------*/
+.idx-wrap{
+	width: 96%;
+	margin: 0 auto;
+	position: relative;
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Boton ver más
+/*----------------------------------------------------------------------------------*/
+.idx-btn-sm{
+	color: #666561;
+	background: #e6e4df;
+	height: 48px;
+	width: 100%;
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: uppercase;
+	span{
+		display: flex;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		&:after{
+			content: "\e904";
+			font-family: $web-icons;
+			display: inline-block;
+			font-size: 14px;
+			margin-left: 10px;
+		}
+	}
+}
+
+.idx-mg-st{
+	margin-bottom: 30px;
+}

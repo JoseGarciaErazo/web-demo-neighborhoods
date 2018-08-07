@@ -8,7 +8,6 @@ html(lang='en')
 		meta(name="apple-mobile-web-app-status-bar-style", content="#4b4b4b")
 		meta(name="theme-color", content="#4b4b4b")
 		meta(name="msapplication-navbutton-color", content="#4b4b4b")
-		link(rel="stylesheet", href="http://betalg.staging.wpengine.com/wp-content/plugins/idx-boost/css/main.css")
 		link(rel="stylesheet", href="css/style.css")
 		link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800")
 
@@ -47,7 +46,7 @@ html(lang='en')
 					li: a(href="#") Other Communities
 
 		//Property information
-		section
+		section.idx-mg-st
 			h2.idx-hidden-title Property information
 			.idx-wrap
 				.idx-wrap-slider
@@ -55,87 +54,92 @@ html(lang='en')
 				.idx-wrap-paragraph
 
 		//Neighborhood list
-		section
+		section.idx-mg-st
 			h2.idx-st-title Neighborhoods
 			.idx-wrap
 				.idx-basic-list
-					- for(b = 0; b < 12; b++)
-						.idx-basic-item
-							.idx-grid-ng
-								.idx-grid-ng-img
-									img(src="//retsimages.s3.amazonaws.com/35/A10487435_1.jpg", alt="Burlingables, Timeless Elegance, Gracious Charm, Top Schools", title="Burlingables")
-									.idx-grid-ng-information
-										h2 Burlingables
-										h3 Timeless Elegance, Gracious Charm, Top Schools
-								.idx-grid-ng-btn
-									a(href="#") view
-								.idx-grid-tag $1.65M - $2.75M
+					//- for(b = 0; b < 12; b++)
+					.idx-basic-item
+						.idx-grid-ng
+							.idx-grid-ng-img
+								img(src="//retsimages.s3.amazonaws.com/35/A10487435_1.jpg", alt="Burlingables, Timeless Elegance, Gracious Charm, Top Schools", title="Burlingables")
+								.idx-grid-ng-information
+									h2 Burlingables
+									h3 Timeless Elegance, Gracious Charm, Top Schools
+							.idx-grid-ng-btn
+								a(href="#") view
+							.idx-grid-tag $1.65M - $2.75M
 				button.idx-btn-sm: span View more neighborhoods
 		
 		//Property Data information
-		section
+		section.idx-mg-st.idx-bg-gray
 			h2.idx-st-title Data & Market Conditions
 			.idx-wrap
-				.idx-table-fx
-					ul.idx-table-header
-						li
-							.th-item Single Family Homes
-							.th-item 6,261
-					ul.idx-table-body
-						li
-							.td-item 1 Bedroom Homes
-							.td-item 29
-						li
-							.td-item 2 Bedroom Homes
-							.td-item 1,339
-						li
-							.td-item 3 Bedroom Homes
-							.td-item 2,814
-						li
-							.td-item 4 Bedroom Homes
-							.td-item 1,569
-						li
-							.td-item 5+ Bedroom Homes
-							.td-item 510
-						li.td-item-lb
-							.td-item Condos/Townhomes
-							.td-item 828
-						li.td-item-lb
-							.td-item Duplex
-							.td-item 239
-
-				.idx-table-fx
-					ul.idx-table-header
-						li
-							.th-item Description
-							.th-item 2016
-							.th-item 2017
-					ul.idx-table-body
-						li
-							.td-item Number of Sales
-							.td-item 211
-							.td-item 216
-						li
-							.td-item Percent List Price Received
-							.td-item 106.4%
-							.td-item 109.4%
-						li
-							.td-item Median Sales Price
-							.td-item $1,880,000
-							.td-item $1,919,000
-						li
-							.td-item Average Sale Price
-							.td-item $1,921,000
-							.td-item $1,975,000
-						li
-							.td-item Lowest Sale Price
-							.td-item $550,000
-							.td-item $705,000
-						li
-							.td-item Highest Sale Price
-							.td-item $4,588,000
-							.td-item $5,100,000
+				.idx-wrap-table
+					h2 Home Data
+						span per tax records
+					table.idx-table-fx
+						tbody
+							tr.idx-row
+								td Single Family Homes
+								td 6,261
+							tr
+								td 1 Bedroom Homes
+								td 29
+							tr
+								td 2 Bedroom Homes
+								td 1,339
+							tr
+								td 3 Bedroom Homes
+								td 2,814
+							tr
+								td 4 Bedroom Homes
+								td 1,569
+							tr
+								td 5+ Bedroom Homes
+								td 510
+							tr.idx-row
+								td Condos/Townhomes
+								td 828
+							tr.idx-row
+								td Duplex
+								td 239
 				
+				.idx-wrap-table
+					h2 Price Data
+					table.idx-table-fx
+						thead
+							tr
+								td
+								td 2016
+								td 2017
+						tbody
+							tr.idx-row
+								td.idx-nb Number of Sales
+								td 211
+								td 216
+							tr.idx-row
+								td.idx-nb Percent List Price Received
+								td 106.4%
+								td 109.4%
+							tr.idx-row 
+								td.idx-nb Median Sales Price
+								td $1,880,000
+								td $1,919,000
+							tr.idx-row
+								td.idx-nb Average Sale Price
+								td $1,921,000
+								td $1,975,000
+							tr.idx-row
+								td.idx-nb Lowest Sale Price
+								td $550,000
+								td $705,000
+							tr.idx-row
+								td.idx-nb Highest Sale Price
+								td $4,588,000
+								td $5,100,000
+
+
 				.idx-graph
 					.idx-wrap-canvas
 						canvas#chart1
@@ -158,7 +162,7 @@ html(lang='en')
 						span.idx-graph-detail Percent of list price
 
 		//Property History
-		section
+		section.idx-mg-st
 			h2.idx-st-title Schools & history
 			.idx-wrap
 				article
@@ -176,7 +180,7 @@ html(lang='en')
 							li a(href="#") School Videos and Pricipal Interviews
 		
 		//More Properties 
-		section
+		section.idx-mg-st
 			h2.idx-st-title Other Communities
 			.idx-wrap
 				.idx-pt-slider
