@@ -1,0 +1,60 @@
+/*----------------------------------------------------------------------------------*/
+/* Graphics
+/*----------------------------------------------------------------------------------*/
+.idx-graph{
+	width: 100%;
+	position: relative;
+	background-color: #FFF;
+	margin-bottom: 15px;
+	.idx-wrap-canvas{
+		position: relative;
+		width: 100%;
+		background-color: #2e384d;
+		&:after{
+			content: "";
+			display: block;
+			padding-bottom: 78.048%;
+		}
+
+		canvas{
+			display: inline-block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			max-width: 90%;
+			max-height: 90%;
+		}
+	}
+
+	.idx-wrap-legend{
+		padding: 15px;
+		.idx-graph-title{
+			font-family: $opensans;
+			font-size: 15px;
+			font-weight: 700;
+			margin-bottom: 10px;
+		}
+		.idx-graph-detail{
+			position: relative;
+			padding-left: 15px;
+			color: #757575;
+			font-family: $opensans;
+			font-size: 10px;
+			font-weight: 700;
+			text-transform: uppercase;
+			display: block;
+			&:before{
+				content: "";
+				display: block;
+				width: 9px;
+				height: 9px;
+				top: 3px;
+				left: 0;
+				position: absolute;
+				background-color: rgba(#6b83b3,.7);
+				border-radius: 100%;
+			}
+		}
+	}
+}

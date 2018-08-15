@@ -13,6 +13,15 @@ $web-icons: 'ng-icons' !important;
 	}
 }
 
+.idx-bg-gray-light{
+	background: #f7f6f0;
+	.idx-st-title{
+		&:before{
+	  	border-color: #dbdad6;
+	  }
+	}
+}
+
 body{
 	background-color: #fff;
 	color: #333;
@@ -34,6 +43,10 @@ body{
 	width: 0;
 }
 
+.idx-mg-st{
+	padding: 20px 10px 30px 10px;
+}
+
 /*----------------------------------------------------------------------------------*/
 /* Título sección
 /*----------------------------------------------------------------------------------*/
@@ -43,7 +56,7 @@ body{
 	font-weight: 700;
 	text-transform: uppercase;
 	margin: 15px auto 30px auto;
-	width: 94%;
+	width: 100%;
 	&:before{
 		content: "";
 		border-width: 0;
@@ -62,7 +75,7 @@ body{
 /* Contendor de sección
 /*----------------------------------------------------------------------------------*/
 .idx-wrap{
-	width: 96%;
+	width: 100%;
 	margin: 0 auto;
 	position: relative;
 }
@@ -85,16 +98,201 @@ body{
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		z-index: 2;
+		position: relative;
 		&:after{
 			content: "\e904";
 			font-family: $web-icons;
 			display: inline-block;
 			font-size: 14px;
 			margin-left: 10px;
+			z-index: 2;
+		}
+		&:before{
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			background-color: rgba(0, 0, 0, 0.15);
+			opacity: 0;
+			transition: opacity .3s;
+		}
+	}
+
+	&:hover{
+		span{
+			&:before{
+				opacity: 1;
+			}
 		}
 	}
 }
 
-.idx-mg-st{
-	margin-bottom: 30px;
+.idx-link-st{
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: #cc8829;
+}
+
+.idx-btn-content{
+	margin: 15px 0;
+}
+
+.idx-btn-play{
+	width: 70px;
+	height: 70px;
+	border-radius: 100%;
+	transition: all .3s ease !important;
+	background-color: #FFF;
+	opacity: .8;
+	text-indent: -99999px;
+	overflow: hidden;
+	span{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		text-indent: -99999px;
+		overflow: hidden;
+		position: absolute;
+		top: 0;
+		left: 0;
+		&:before{
+			text-indent: 0;
+			content: "\ea1c";
+			font-family: $web-icons;
+			font-size: 24px;
+			display: inline-block;
+			color: #29b1cc;
+		}
+	}
+
+	&:hover{
+		opacity: 1;
+		transform: scale(1.1);
+	}
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Descripción básica
+/*----------------------------------------------------------------------------------*/
+.idx-basic-description{
+	h2, h3, h4{
+		font-weight: 600;
+		font-size: 16px;
+		margin-bottom: 10px;
+	}
+	p{
+		font-size: 14px;
+		line-height: 1.6;
+		margin-bottom: 15px;
+	}
+	a{
+		font-size: 14px;
+		margin-bottom: 5px;
+		display: block;
+		color: #6b83b3;
+	}
+	ul{
+		li{
+			padding-left: 15px;
+			font-size: 14px;
+			margin-bottom: 10px;
+			position: relative;
+			&:before{
+				content: "";
+				display: block;
+				width: 6px;
+				height: 6px;
+				background-color: #6b83b3;
+				border-radius: 100%;
+				top: 8px;
+				left: 0;
+				position: absolute;
+			}
+		}
+	}
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Link de ayuda
+/*----------------------------------------------------------------------------------*/
+.idx-helpful-links{
+	padding: 20px;
+	background-color: #FFF;
+	h2, h3, h4{
+		font-weight: 600;
+		font-size: 16px;
+		margin-bottom: 10px;
+	}
+	a{
+		font-size: 14px;
+		margin-bottom: 5px;
+		display: block;
+		color: #6b83b3;
+	}
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Media Nav
+/*----------------------------------------------------------------------------------*/
+.idx-media-nav{
+	background: #e6992e;
+	display: flex;
+	width: 100%;
+	align-items: flex-start;
+	.idx-btn-nav{
+		height: 40px;
+		font-size: 12px;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: rgba(0,0,0,0.4);
+		background-color: transparent;
+		&:hover,
+		&.active,
+		&:active{
+			color: #FFF;
+		}
+		span{
+			display: flex;
+			height: 100%;
+			width: auto;
+			align-items: center;
+			justify-content: center;
+			padding: 0 7px;
+			label{
+				margin-left: 3px;
+			}
+		}
+
+		&.idx-icon-photo{
+			span{
+				&:before{
+					content: "\e90f";
+					font-family: $web-icons;
+					display: inline-block;
+					font-size: 16px;
+					margin-right: 5px;
+				}
+			}
+		}
+
+		&.idx-icon-map{
+			span{
+				&:before{
+					content: "\e903";
+					font-family: $web-icons;
+					display: inline-block;
+					font-size: 16px;
+					margin-right: 5px;
+				}
+			}
+		}
+	}
 }

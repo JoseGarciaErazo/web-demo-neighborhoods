@@ -50,8 +50,42 @@ html(lang='en')
 			h2.idx-hidden-title Property information
 			.idx-wrap
 				.idx-wrap-slider
+					.idx-media-nav
+						button#idx-nph.idx-btn-nav.idx-icon-photo: span Photos
+						button#idx-nmp.idx-btn-nav.idx-icon-map: span Maps
+					
+					.idx-slider-content
+						#idx-gs-slider
+							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_1.jpg").img-slider.gs-lazy
+							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_2.jpg").img-slider.gs-lazy
+							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_3.jpg").img-slider.gs-lazy
+							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_4.jpg").img-slider.gs-lazy
+							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_5.jpg").img-slider.gs-lazy
+							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_6.jpg").img-slider.gs-lazy
+							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_7.jpg").img-slider.gs-lazy
+							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_8.jpg").img-slider.gs-lazy.idx-img-map
+						
+						.idx-gs-nav-btn
+							button.gs-prev-arrow: span
+							button.gs-next-arrow: span
+
 				.idx-wrap-media
-				.idx-wrap-paragraph
+
+					.idx-grid-card
+						h3.idx-card-caption An Overview of Burlingame
+						.idx-card-img
+							img(src="//retsimages.s3.amazonaws.com/35/A10487435_1.jpg")
+						.idx-card-link view more
+
+					.idx-grid-card
+						h3.idx-card-caption An Overview of Burlingame
+						.idx-card-img
+							img(src="//retsimages.s3.amazonaws.com/35/A10487435_1.jpg")
+						.idx-btn-play view video 
+							span
+
+				.idx-basic-description
+					p With excellent, top rated public elementary and middle schools coupled with high parental involvement, Burlingame boasts one of the premier public high schools on the peninsula, not only known for its academics, but a fine sporting facility as well, which is shared with Burlingame residents and non-residents alike. The facilities include an aquatic center with a state-of-the-art Colorado timing system, a seven lane track (which would have been the site of the Olympic trials along with Stanford University had San Francisco been nominated as the U.S. host for the 2012 games!), two gymnasiums, eight tennis courts, and five football, soccer, and baseball fields.
 
 		//Neighborhood list
 		section.idx-mg-st
@@ -67,7 +101,7 @@ html(lang='en')
 									h2 Burlingables
 									h3 Timeless Elegance, Gracious Charm, Top Schools
 							.idx-grid-ng-btn
-								a(href="#") view
+								a(href="#"): span view
 							.idx-grid-tag $1.65M - $2.75M
 				button.idx-btn-sm: span View more neighborhoods
 		
@@ -142,30 +176,30 @@ html(lang='en')
 
 				.idx-graph
 					.idx-wrap-canvas
-						canvas#chart1
+						canvas#chart1(width="620", height="480", data-element='[43,75,13,17,20,18]', data-labels='[2012,2013,2014,2015,2016,2017]')
 					.idx-wrap-legend
 						h2.idx-graph-title Average Days on Market
 						span.idx-graph-detail Days
 
 				.idx-graph
 					.idx-wrap-canvas
-						canvas#chart2
+						canvas#chart2(width="620", height="480", data-element='[37,3,2,203,211,216]', data-labels='[2012,2013,2014,2015,2016,2017]')
 					.idx-wrap-legend
 						h2.idx-graph-title Home Sales
 						span.idx-graph-detail Sales
 
 				.idx-graph
 					.idx-wrap-canvas
-						canvas#chart3
+						canvas#chart3(width="620", height="480", data-element='[99,99,100,108,105,108]', data-labels='[2012,2013,2014,2015,2016,2017]')
 					.idx-wrap-legend
 						h2.idx-graph-title Sale Price to List Price
 						span.idx-graph-detail Percent of list price
 
 		//Property History
-		section.idx-mg-st
+		section.idx-mg-st.idx-bg-gray-light
 			h2.idx-st-title Schools & history
 			.idx-wrap
-				article
+				article.idx-basic-description
 					h3 Schools
 					p If you’re looking to buy a home in Burlingame in a particular public elementary school district, this unique google map will help you identify the geographic boundaries for enrollment of each school. This map was assembled from data from the school district website (handy for quickly identifying what school a particular address is assigned to), and is reliable but not guaranteed.
 					
@@ -173,15 +207,17 @@ html(lang='en')
 
 					p All addresses in Burlingame go to Burlingame High School (In 2003, the district lines were redrawn to incorporate this change). Burlingame High is within the San Mateo Union High School District (not the Burlingame School District, which includes all five public elementary schools and BIS). To verify enrollment information, please contact the High School District.
 
-					.idx-helpful-links
-						h3 Helpful Links
-						ul
-							li a(href="#") Burlingame School District Website
-							li a(href="#") School Videos and Pricipal Interviews
+				.idx-helpful-links
+					h3 Helpful Links
+					ul
+						li: a(href="#") Burlingame School District Website
+						li: a(href="#") School Videos and Pricipal Interviews
 		
 		//More Properties 
 		section.idx-mg-st
 			h2.idx-st-title Other Communities
+			.idx-btn-content
+				a(href="#").idx-link-st View all Communities
 			.idx-wrap
 				.idx-pt-slider
 					- for(b = 0; b < 12; b++)
@@ -193,8 +229,19 @@ html(lang='en')
 										h2 Burlingables
 										h3 Timeless Elegance, Gracious Charm, Top Schools
 								.idx-grid-ng-btn
-									a(href="#") view
+									a(href="#"): span view
 								.idx-grid-tag $1.65M - $2.75M
 
+					.idx-grid-ng
+						.idx-grid-ng-img
+							img(src="//retsimages.s3.amazonaws.com/35/A10487435_1.jpg", alt="Burlingables, Timeless Elegance, Gracious Charm, Top Schools", title="Burlingables")
+						.idx-grid-ng-content
+							h2 Burlingame Real Estate Market Review
+							p Each year Raziel publishes this award winning annual review of the Burlingame real estate market.
+						.idx-grid-ng-btn
+							a(href="#"): span view
 
-		script(type="text/javascript", src="../js/jquery-3.1.1.min.js")
+		script(type="text/javascript", src="js/jquery-3.1.1.min.js")
+		script(type="text/javascript", src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js")
+		script(type="text/javascript", src="js/greatslider.jquery.min.js")
+		script(type="text/javascript", src="js/script.js")

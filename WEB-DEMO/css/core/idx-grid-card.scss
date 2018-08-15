@@ -4,25 +4,26 @@
 .idx-grid-ng{
 	position: relative;
 	margin-bottom: 10px;
-
-	&:before{
-		content: "";
-		display: block;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: calc(100% - 48px);
-		background: linear-gradient(to top, #333a4c 0%,rgba(0,0,0,0.01) 100%);
-		z-index: 1;
-	}
-
 	.idx-grid-ng-img{
 		position: relative;
 		&:after{
 			content: "";
 			display: block;
-			padding-bottom: 80%;
+			padding-bottom: 75%;
+		}
+
+		&:not(.loading){
+			&:before{
+				content: "";
+				display: block;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(to top, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.01) 100%);
+				z-index: 1;
+			}
 		}
 
 		img{
@@ -44,12 +45,14 @@
 			h2{
 				font-size: 16px;
 				font-weight: 700;
+				font-family: $opensans;
 				color: #FFF;
 				margin-bottom: 10px;
 			}
 			h3{
 				font-size: 14px;
 				font-weight: 700;
+				font-family: $opensans;
 				color: #FFF;
 			}
 		}
@@ -61,15 +64,66 @@
 			height: 48px;
 			display: block;
 			width: 100%;
-			padding: 0 15px;
-			line-height: 48px;
-			text-align: center;
-			font-weight: 700;
-			text-transform: uppercase;
-			font-size: 12px;
-			background: #29b1cc;
 			color: #FFF;
-			position: relative;
+			font-size: 12px;
+			font-weight: 700;
+			font-family: $opensans;
+			text-transform: uppercase;
+			background: #29b1cc;
+			span{
+				padding: 0 15px;
+				text-align: center;
+				position: relative;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				height: 100%;
+				z-index: 2;
+				&:before{
+					content: "";
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					z-index: -1;
+					background-color: rgba(0,0,0,.15);
+					opacity: 0;
+					transition: opacity .3s;
+				}
+			}
+			&:hover{
+				span{
+					&:before{
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+
+	.idx-grid-ng-content{
+		padding: 15px;
+		h2, h3, h4{
+			font-size: 16px;
+			font-weight: 700;
+			margin-bottom: 10px;
+		}
+		p{
+			font-size: 14px;
+			line-height: 1.6;
+			margin-bottom: 15px;
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+		a{
+			font-size: 14px;
+			margin-bottom: 5px;
+			display: block;
+			color: #6b83b3;
 		}
 	}
 
@@ -83,6 +137,7 @@
     background: #e6992e;
     color: rgba(0,0,0,0.4);
     font-weight: 700;
-    z-index: 1;
-	}   
+    font-family: $opensans;
+    z-index: 2;
+	}
 }

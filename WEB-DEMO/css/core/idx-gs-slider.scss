@@ -1,0 +1,137 @@
+/*----------------------------------------------------------------------------------*/
+/* Slider
+/*----------------------------------------------------------------------------------*/
+#idx-gs-slider{
+	position: relative;
+	margin-bottom: 15px;
+	line-height: 0;
+	.idx-gs-sl-item{
+		width: 100%;
+		position: relative;
+		img{
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		&:after{
+			content: "";
+			display: block;
+			clear: both;
+			padding-bottom: 75%;
+		}
+	}
+
+	.gs-next-arrow, 
+	.gs-prev-arrow {
+		width: 35px;
+	}
+	
+	.gs-container-navs{
+		.idx-gs-wrapper-bullets{
+			margin: 10px 0;
+			&:after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			button{
+				float: left;
+				width: 18.13953%;
+				margin-right: 2.32558%;
+				margin-bottom: 10px;
+				background-size: cover !important;
+				background-position: center !important;
+				padding: 8% 0;
+				opacity: 0.8;
+				transition: opacity .3s ease;
+				&:hover,
+				&.gs-bullet-active{
+					opacity: 1;
+				}
+				&:nth-child(5n){
+					margin-right: 0;
+				}
+
+				@media screen and (min-width: 640px){
+					margin-top: 20px;
+					width: 9.41176%;
+					margin-right: 3.52941%;
+					padding: 4% 0;
+					&:nth-child(5n){
+						margin-right: 3.52941%;
+					}
+					&:nth-child(8n){
+						margin-right: 0;
+					}
+				}
+			}
+		}
+
+		.gs-wrapper-arrows{
+			overflow: hidden;
+			height: 0;
+		}
+	}
+
+	.gs-item-slider{
+		display: block !important;
+	}
+}
+
+.idx-slider-content{
+	position: relative;
+	width: 100%;
+	.idx-gs-nav-btn{
+		position: absolute;
+		top: 0;
+		z-index: 4;
+		width: 100%;
+		height: 1px;
+		left: 0;
+		margin-top: -45px;
+		top: 50%;
+		transform: translateY(-50%);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		button{
+			width: 35px;
+			opacity: 0.6;
+			transition: opacity 150ms ease;
+			background-color: rgba(0,0,0,.9);
+			span{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				height: 100%;
+				&:before{
+					content: "\e905";
+					font-family: $web-icons;
+					font-size: 13px;
+					color: #FFF;
+				}
+			}
+			&.gs-prev-arrow{
+				span{
+					&:before{
+						transform: rotate(90deg);
+					}
+				}
+			}
+			&.gs-next-arrow{
+				span{
+					&:before{
+						transform: rotate(-90deg);						
+					}
+				}
+			}
+			&:hover{
+				opacity: 1;
+			}
+		}
+	}
+}

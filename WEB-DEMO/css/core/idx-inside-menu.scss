@@ -1,30 +1,54 @@
 /*----------------------------------------------------------------------------------*/
 /* Inside Menu
 /*----------------------------------------------------------------------------------*/
-.idx-nav-int-content{
-	white-space: nowrap;
-	overflow-x: auto;
-	-webkit-overflow-scrolling: touch;
-	-ms-overflow-style: -ms-autohiding-scrollbar;
+.idx-wrap-nav{
+	position: relative;
 	background: #e6992e;
-	&::-webkit-scrollbar {
-		display: none; 
-	}
+}
+
+.idx-nav-int-content{
+	overflow: hidden;
+	position: -webkit-sticky;
+	position: sticky;
+	z-index: 10;
+	top: 0;
+	height: 40px;
+
 	nav{
 		width: 100%;
-		ul{
+		height: 56px;
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;
+		-ms-overflow-style: -ms-autohiding-scrollbar;
+		background: #e6992e;
+		&::-webkit-scrollbar {
+			display: none; 
+		}
+
+		&:before{
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 80px;
 			height: 40px;
-			display: flex;
+			z-index: 2;
+			background: linear-gradient(to left, rgba(230,153,46,0.99) 10%,rgba(230,153,46,0.01) 100%);
+		}
+
+		ul{
+			white-space: nowrap;
 			li{
-				display: flex;
-				width: auto;
-				height: 100%;
-				align-items: center;
-				justify-content: center;
-				padding: 0 15px;
+				font-family: $opensans;
 				font-size: 12px;
 				font-weight: 700;
 				text-transform: uppercase;
+				display: inline-block;
+				padding: 12px 0 12px 10px;
+				margin-right: 10px;
+				position: relative;
+
 				a{
 					color: rgba(0,0,0,0.4);
 					&:hover,
