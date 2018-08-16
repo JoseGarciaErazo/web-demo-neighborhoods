@@ -11,10 +11,11 @@ html(lang='en')
 		link(rel="stylesheet", href="css/style.css")
 		link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800")
 
-	body
+	body#idx-page-community
+		
 		//Main content
 		main.idx-main-hd
-			article
+			article.idx-wrap
 				h1 Burlingame
 				h2 Timeless Elegance, Gracious Charm, Top Schools
 				p Burlingame is one of the few areas that has maintained its gracious charm and timeless elegance over the decades. A favorite among families, Burlingame’s two main shopping areas, Burlingame Avenue and Broadway, attract a wide variety of shoppers discovering its boutiques, restaurants, dessert places, and clothing stores. Home to fresh farmer’s markets every Sunday morning in the summer and fall, jazz concerts in Washington Park, and a yearly Art in the Park fair, Burlingame is a wonderful place to start a family or retire later in life, and is well equipped for both!
@@ -46,7 +47,7 @@ html(lang='en')
 					li: a(href="#") Other Communities
 
 		//Property information
-		section.idx-mg-st
+		section.idx-mg-st#idx-section-a
 			h2.idx-hidden-title Property information
 			.idx-wrap
 				.idx-wrap-slider
@@ -61,11 +62,11 @@ html(lang='en')
 							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_3.jpg").img-slider.gs-lazy
 							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_4.jpg").img-slider.gs-lazy
 							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_5.jpg").img-slider.gs-lazy
-							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_6.jpg").img-slider.gs-lazy
-							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_7.jpg").img-slider.gs-lazy
+							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_6.jpg").img-slider.gs-lazy.idx-img-map
+							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_7.jpg").img-slider.gs-lazy.idx-img-map
 							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_8.jpg").img-slider.gs-lazy.idx-img-map
 						
-						.idx-gs-nav-btn
+						//.idx-gs-nav-btn
 							button.gs-prev-arrow: span
 							button.gs-next-arrow: span
 
@@ -88,21 +89,21 @@ html(lang='en')
 					p With excellent, top rated public elementary and middle schools coupled with high parental involvement, Burlingame boasts one of the premier public high schools on the peninsula, not only known for its academics, but a fine sporting facility as well, which is shared with Burlingame residents and non-residents alike. The facilities include an aquatic center with a state-of-the-art Colorado timing system, a seven lane track (which would have been the site of the Olympic trials along with Stanford University had San Francisco been nominated as the U.S. host for the 2012 games!), two gymnasiums, eight tennis courts, and five football, soccer, and baseball fields.
 
 		//Neighborhood list
-		section.idx-mg-st
+		section.idx-mg-st#idx-section-b
 			h2.idx-st-title Neighborhoods
 			.idx-wrap
 				.idx-basic-list
-					//- for(b = 0; b < 12; b++)
-					.idx-basic-item
-						.idx-grid-ng
-							.idx-grid-ng-img
-								img(src="//retsimages.s3.amazonaws.com/35/A10487435_1.jpg", alt="Burlingables, Timeless Elegance, Gracious Charm, Top Schools", title="Burlingables")
-								.idx-grid-ng-information
-									h2 Burlingables
-									h3 Timeless Elegance, Gracious Charm, Top Schools
-							.idx-grid-ng-btn
-								a(href="#"): span view
-							.idx-grid-tag $1.65M - $2.75M
+					- for(b = 0; b < 4; b++)
+						.idx-basic-item
+							.idx-grid-ng
+								.idx-grid-ng-img
+									img(src="//retsimages.s3.amazonaws.com/35/A10487435_1.jpg", alt="Burlingables, Timeless Elegance, Gracious Charm, Top Schools", title="Burlingables")
+									.idx-grid-ng-information
+										h2 Burlingables
+										h3 Timeless Elegance, Gracious Charm, Top Schools
+								.idx-grid-ng-btn
+									a(href="#"): span view
+								.idx-grid-tag $1.65M - $2.75M
 				button.idx-btn-sm: span View more neighborhoods
 		
 		//Property Data information
@@ -214,13 +215,16 @@ html(lang='en')
 						li: a(href="#") School Videos and Pricipal Interviews
 		
 		//More Properties 
-		section.idx-mg-st
-			h2.idx-st-title Other Communities
-			.idx-btn-content
-				a(href="#").idx-link-st View all Communities
-			.idx-wrap
-				.idx-pt-slider
-					- for(b = 0; b < 12; b++)
+		section.idx-ng-st
+			.idx-section-header
+				h2.idx-st-title Other Communities
+				
+
+			.idx-wrap-gen-slider
+				.idx-btn-content
+					a(href="#").idx-link-st View all Communities
+				.idx-pt-slider.idx-general-slider
+					- for(b = 0; b < 13; b++)
 						.idx-item-pt-slider
 							.idx-grid-ng
 								.idx-grid-ng-img
@@ -232,14 +236,14 @@ html(lang='en')
 									a(href="#"): span view
 								.idx-grid-tag $1.65M - $2.75M
 
-					.idx-grid-ng
-						.idx-grid-ng-img
-							img(src="//retsimages.s3.amazonaws.com/35/A10487435_1.jpg", alt="Burlingables, Timeless Elegance, Gracious Charm, Top Schools", title="Burlingables")
-						.idx-grid-ng-content
-							h2 Burlingame Real Estate Market Review
-							p Each year Raziel publishes this award winning annual review of the Burlingame real estate market.
-						.idx-grid-ng-btn
-							a(href="#"): span view
+				//.idx-grid-ng
+					.idx-grid-ng-img
+						img(src="//retsimages.s3.amazonaws.com/35/A10487435_1.jpg", alt="Burlingables, Timeless Elegance, Gracious Charm, Top Schools", title="Burlingables")
+					.idx-grid-ng-content
+						h2 Burlingame Real Estate Market Review
+						p Each year Raziel publishes this award winning annual review of the Burlingame real estate market.
+					.idx-grid-ng-btn
+						a(href="#"): span view
 
 		script(type="text/javascript", src="js/jquery-3.1.1.min.js")
 		script(type="text/javascript", src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js")

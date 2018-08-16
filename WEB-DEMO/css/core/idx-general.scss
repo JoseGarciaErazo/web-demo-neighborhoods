@@ -44,7 +44,36 @@ body{
 }
 
 .idx-mg-st{
+	overflow: hidden;
 	padding: 20px 10px 30px 10px;
+	@media screen and (min-width: 480px){
+		padding: 40px 0;
+	}
+}
+
+.idx-ng-st{
+	overflow: hidden;
+	padding: 20px 0 30px 0;
+	@media screen and (min-width: 480px){
+		padding: 40px 0;
+	}
+}
+
+.idx-section-header{
+	padding: 0 10px;
+	@media screen and (min-width: 480px){
+		padding: 0;
+	}
+}
+
+@media screen and (min-width: 480px){
+	.idx-wrap{
+		width: 86% !important;
+		min-width: 310px;
+		max-width: 1300px;
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
 }
 
 /*----------------------------------------------------------------------------------*/
@@ -57,6 +86,12 @@ body{
 	text-transform: uppercase;
 	margin: 15px auto 30px auto;
 	width: 100%;
+	@media screen and (min-width: 480px){
+		width: 86%;
+		min-width: 310px;
+		max-width: 1300px;
+	}
+
 	&:before{
 		content: "";
 		border-width: 0;
@@ -132,6 +167,9 @@ body{
 	}
 }
 
+/*----------------------------------------------------------------------------------*/
+/* Boton link
+/*----------------------------------------------------------------------------------*/
 .idx-link-st{
 	font-size: 12px;
 	font-weight: 600;
@@ -139,10 +177,16 @@ body{
 	color: #cc8829;
 }
 
+/*----------------------------------------------------------------------------------*/
+/* Contenedor de botones
+/*----------------------------------------------------------------------------------*/
 .idx-btn-content{
 	margin: 15px 0;
 }
 
+/*----------------------------------------------------------------------------------*/
+/* Boton de play
+/*----------------------------------------------------------------------------------*/
 .idx-btn-play{
 	width: 70px;
 	height: 70px;
@@ -192,6 +236,9 @@ body{
 		font-size: 14px;
 		line-height: 1.6;
 		margin-bottom: 15px;
+		/*&:last-child{
+			margin-bottom: 0;
+		}*/
 	}
 	a{
 		font-size: 14px;
@@ -293,6 +340,29 @@ body{
 					margin-right: 5px;
 				}
 			}
+		}
+	}
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Lista basica
+/*----------------------------------------------------------------------------------*/
+.idx-basic-list{
+	position: relative;
+	margin-left: -10px;
+	margin-right: -10px;
+	&:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	.idx-basic-item{
+		float: left;
+		padding: 0 10px;
+		width: 100%;
+		@media screen and (min-width: 640px){
+			width: 50%;
+			margin-bottom: 10px;
 		}
 	}
 }
