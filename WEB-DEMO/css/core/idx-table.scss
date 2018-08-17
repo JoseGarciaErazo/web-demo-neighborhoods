@@ -8,6 +8,10 @@
 	font-size: 14px;
 	border-collapse: collapse;
 	border-spacing: 0;
+	@media screen and (min-width: 768px){
+		font-size: 16px;
+	}
+	
 	tr{
 		td{
 			padding: 7px 0;
@@ -56,5 +60,9 @@
 			margin-left: 10px;
 			color: #6b83b3;
 		}
+	}
+
+	@media screen and (min-width: 768px){
+		padding: 20px;
 	}
 }

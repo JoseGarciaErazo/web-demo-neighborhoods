@@ -81,9 +81,13 @@
 			lazyLoad: true,
 			bullets: false,
 			items: 1,
+			layout: {
+				arrowDefaultStyles: false
+			},
 			breakPoints: {
 				640: {
-					items: 2
+					items: 2,
+					nav: true,
 				},
 				1100: {
 					items: 3

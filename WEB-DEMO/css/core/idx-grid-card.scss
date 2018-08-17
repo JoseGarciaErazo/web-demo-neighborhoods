@@ -4,6 +4,8 @@
 .idx-grid-ng{
 	position: relative;
 	margin-bottom: 10px;
+	background-color: #FFF;
+	width: 100%;
 	.idx-grid-ng-img{
 		position: relative;
 		&:after{
@@ -49,11 +51,28 @@
 				color: #FFF;
 				margin-bottom: 10px;
 			}
+
 			h3{
 				font-size: 14px;
 				font-weight: 700;
 				font-family: $opensans;
 				color: #FFF;
+			}
+
+			@media screen and (min-width: 991px){
+				padding: 20px;
+
+				h2{
+					font-size: 20px;
+				}
+
+				h3{
+					font-size: 14px;
+					font-weight: 600;
+					font-family: $opensans;
+					color: #FFF;
+					text-transform: uppercase;
+				}
 			}
 		}
 	}
@@ -94,12 +113,18 @@
 					transition: opacity .3s;
 				}
 			}
+
 			&:hover{
 				span{
 					&:before{
 						opacity: 1;
 					}
 				}
+			}
+
+			@media screen and (min-width: 991px){
+				height: 50px;
+				font-size: 14px;
 			}
 		}
 	}
@@ -125,6 +150,16 @@
 			display: block;
 			color: #6b83b3;
 		}
+
+		@media screen and (min-width: 991px){
+			h2, h3, h4{
+				font-size: 20px;
+				//margin-bottom: 10px;
+			}
+			p, a{
+				font-size: 16px;
+			}
+		}
 	}
 
 	.idx-grid-tag{
@@ -139,5 +174,8 @@
     font-weight: 700;
     font-family: $opensans;
     z-index: 2;
+    @media screen and (min-width: 991px){
+    	font-size: 14px;
+    }
 	}
 }

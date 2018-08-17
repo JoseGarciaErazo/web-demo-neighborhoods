@@ -15,23 +15,24 @@ html(lang='en')
 		
 		//Main content
 		main.idx-main-hd
-			article.idx-wrap
-				h1 Burlingame
-				h2 Timeless Elegance, Gracious Charm, Top Schools
-				p Burlingame is one of the few areas that has maintained its gracious charm and timeless elegance over the decades. A favorite among families, Burlingame’s two main shopping areas, Burlingame Avenue and Broadway, attract a wide variety of shoppers discovering its boutiques, restaurants, dessert places, and clothing stores. Home to fresh farmer’s markets every Sunday morning in the summer and fall, jazz concerts in Washington Park, and a yearly Art in the Park fair, Burlingame is a wonderful place to start a family or retire later in life, and is well equipped for both!
-				ul
-					li
-						span 28,098
-						|Population
-					li
-						span 6,261
-						|Homes
-					li
-						span $1.95M
-						|Median Sale Price
-					li
-						span $2.08M
-						|Average Sale Price
+			.idx-wrap
+				article
+					h1 Burlingame
+					h2 Timeless Elegance, Gracious Charm, Top Schools
+					p Burlingame is one of the few areas that has maintained its gracious charm and timeless elegance over the decades. A favorite among families, Burlingame’s two main shopping areas, Burlingame Avenue and Broadway, attract a wide variety of shoppers discovering its boutiques, restaurants, dessert places, and clothing stores. Home to fresh farmer’s markets every Sunday morning in the summer and fall, jazz concerts in Washington Park, and a yearly Art in the Park fair, Burlingame is a wonderful place to start a family or retire later in life, and is well equipped for both!
+					ul
+						li
+							span 28,098
+							|Population
+						li
+							span 6,261
+							|Homes
+						li
+							span $1.95M
+							|Median Sale Price
+						li
+							span $2.08M
+							|Average Sale Price
 			img(src="http://palaramoni.com/wp-content/uploads/2018/04/inspiration-miami-homes-design-elegant-home-show-ideas-9316-catmando-luxury.jpg").idx-layer-img
 
 		//Nav interno
@@ -65,10 +66,6 @@ html(lang='en')
 							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_6.jpg").img-slider.gs-lazy.idx-img-map
 							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_7.jpg").img-slider.gs-lazy.idx-img-map
 							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_8.jpg").img-slider.gs-lazy.idx-img-map
-						
-						//.idx-gs-nav-btn
-							button.gs-prev-arrow: span
-							button.gs-next-arrow: span
 
 				.idx-wrap-media
 
@@ -93,7 +90,7 @@ html(lang='en')
 			h2.idx-st-title Neighborhoods
 			.idx-wrap
 				.idx-basic-list
-					- for(b = 0; b < 4; b++)
+					- for(b = 0; b < 12; b++)
 						.idx-basic-item
 							.idx-grid-ng
 								.idx-grid-ng-img
@@ -110,91 +107,110 @@ html(lang='en')
 		section.idx-mg-st.idx-bg-gray
 			h2.idx-st-title Data & Market Conditions
 			.idx-wrap
-				.idx-wrap-table
-					h2 Home Data
-						span per tax records
-					table.idx-table-fx
-						tbody
-							tr.idx-row
-								td Single Family Homes
-								td 6,261
-							tr
-								td 1 Bedroom Homes
-								td 29
-							tr
-								td 2 Bedroom Homes
-								td 1,339
-							tr
-								td 3 Bedroom Homes
-								td 2,814
-							tr
-								td 4 Bedroom Homes
-								td 1,569
-							tr
-								td 5+ Bedroom Homes
-								td 510
-							tr.idx-row
-								td Condos/Townhomes
-								td 828
-							tr.idx-row
-								td Duplex
-								td 239
+				.idx-wrap-table-ct
+					#idx-table-data.idx-wrap-table
+						h2 Home Data
+							span per tax records
+						table.idx-table-fx
+							tbody
+								tr.idx-row
+									td Single Family Homes
+									td 6,261
+								tr
+									td 1 Bedroom Homes
+									td 29
+								tr
+									td 2 Bedroom Homes
+									td 1,339
+								tr
+									td 3 Bedroom Homes
+									td 2,814
+								tr
+									td 4 Bedroom Homes
+									td 1,569
+								tr
+									td 5+ Bedroom Homes
+									td 510
+								tr.idx-row
+									td Condos/Townhomes
+									td 828
+								tr.idx-row
+									td Duplex
+									td 239
+					
+					#idx-table-price.idx-wrap-table
+						h2 Price Data
+						table.idx-table-fx
+							thead
+								tr
+									td
+									td 2016
+									td 2017
+							tbody
+								tr.idx-row
+									td.idx-nb Number of Sales
+									td 211
+									td 216
+								tr.idx-row
+									td.idx-nb Percent List Price Received
+									td 106.4%
+									td 109.4%
+								tr.idx-row 
+									td.idx-nb Median Sales Price
+									td $1,880,000
+									td $1,919,000
+								tr.idx-row
+									td.idx-nb Average Sale Price
+									td $1,921,000
+									td $1,975,000
+								tr.idx-row
+									td.idx-nb Lowest Sale Price
+									td $550,000
+									td $705,000
+								tr.idx-row
+									td.idx-nb Highest Sale Price
+									td $4,588,000
+									td $5,100,000
+
+				ul.idx-basic-list
+					li.idx-basic-item
+
+						.idx-grid-ng
+							.idx-grid-ng-img
+								img(src="//retsimages.s3.amazonaws.com/35/A10487435_1.jpg", alt="Burlingables, Timeless Elegance, Gracious Charm, Top Schools", title="Burlingables")
+							.idx-grid-ng-content
+								h2 Burlingame Real Estate Market Review
+								p Each year Raziel publishes this award winning annual review of the Burlingame real estate market.
+							.idx-grid-ng-btn
+								a(href="#"): span view
+					
+					li.idx-basic-item
+
+						.idx-graph
+							.idx-wrap-canvas
+								canvas#chart1(width="620", height="480", data-element='[43,75,13,17,20,18]', data-labels='[2012,2013,2014,2015,2016,2017]')
+							.idx-wrap-legend
+								h2.idx-graph-title Average Days on Market
+								span.idx-graph-detail Days
+					
+					li.idx-basic-item
+
+						.idx-graph
+							.idx-wrap-canvas
+								canvas#chart2(width="620", height="480", data-element='[37,3,2,203,211,216]', data-labels='[2012,2013,2014,2015,2016,2017]')
+							.idx-wrap-legend
+								h2.idx-graph-title Home Sales
+								span.idx-graph-detail Sales
+					
+					li.idx-basic-item
+
+						.idx-graph
 				
-				.idx-wrap-table
-					h2 Price Data
-					table.idx-table-fx
-						thead
-							tr
-								td
-								td 2016
-								td 2017
-						tbody
-							tr.idx-row
-								td.idx-nb Number of Sales
-								td 211
-								td 216
-							tr.idx-row
-								td.idx-nb Percent List Price Received
-								td 106.4%
-								td 109.4%
-							tr.idx-row 
-								td.idx-nb Median Sales Price
-								td $1,880,000
-								td $1,919,000
-							tr.idx-row
-								td.idx-nb Average Sale Price
-								td $1,921,000
-								td $1,975,000
-							tr.idx-row
-								td.idx-nb Lowest Sale Price
-								td $550,000
-								td $705,000
-							tr.idx-row
-								td.idx-nb Highest Sale Price
-								td $4,588,000
-								td $5,100,000
-
-
-				.idx-graph
-					.idx-wrap-canvas
-						canvas#chart1(width="620", height="480", data-element='[43,75,13,17,20,18]', data-labels='[2012,2013,2014,2015,2016,2017]')
-					.idx-wrap-legend
-						h2.idx-graph-title Average Days on Market
-						span.idx-graph-detail Days
-
-				.idx-graph
-					.idx-wrap-canvas
-						canvas#chart2(width="620", height="480", data-element='[37,3,2,203,211,216]', data-labels='[2012,2013,2014,2015,2016,2017]')
-					.idx-wrap-legend
-						h2.idx-graph-title Home Sales
-						span.idx-graph-detail Sales
-
-				.idx-graph
-					.idx-wrap-canvas
-						canvas#chart3(width="620", height="480", data-element='[99,99,100,108,105,108]', data-labels='[2012,2013,2014,2015,2016,2017]')
-					.idx-wrap-legend
-						h2.idx-graph-title Sale Price to List Price
-						span.idx-graph-detail Percent of list price
+							.idx-wrap-canvas
+								canvas#chart3(width="620", height="480", data-element='[99,99,100,108,105,108]', data-labels='[2012,2013,2014,2015,2016,2017]')
+							.idx-wrap-legend
+								h2.idx-graph-title Sale Price to List Price
+								span.idx-graph-detail Percent of list price
 
 		//Property History
 		section.idx-mg-st.idx-bg-gray-light

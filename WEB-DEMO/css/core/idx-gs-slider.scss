@@ -21,6 +21,9 @@
 			display: block;
 			clear: both;
 			padding-bottom: 75%;
+			@media screen and (min-width: 1024px){
+				padding-bottom: 60%;
+			}
 		}
 	}
 
@@ -165,6 +168,41 @@
 		&.gs-item-active,
 		&.gs-item-active-b{
 			opacity: 1;
+		}
+	}
+
+	.gs-container-navs{
+		.gs-wrapper-arrows{
+			button{
+				width: 35px;
+				opacity: 0.6;
+				transition: opacity 150ms ease;
+				background-color: transparent;
+				&:before{
+					content: "\e905";
+					font-family: $web-icons;
+					font-size: 25px;
+					color: #4d4c4b;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+				&.gs-prev-arrow{
+					margin-left: -45px;
+					&:before{
+						transform: rotate(90deg);
+					}
+				}
+				&.gs-next-arrow{
+					margin-right: -35px;
+					&:before{
+						transform: rotate(-90deg);						
+					}
+				}
+				&:hover{
+					opacity: 1;
+				}
+			}
 		}
 	}
 }

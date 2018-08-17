@@ -104,6 +104,14 @@ body{
     border-bottom: 2px solid #e6e4df;
     width: 80px;
 	}
+
+	@media screen and (min-width: 768px){
+		font-size: 16px;
+		margin-bottom: 50px;
+		&:before{
+			bottom: -40px;
+		}
+	}
 }
 
 /*----------------------------------------------------------------------------------*/
@@ -113,6 +121,11 @@ body{
 	width: 100%;
 	margin: 0 auto;
 	position: relative;
+	&:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
 }
 
 /*----------------------------------------------------------------------------------*/
@@ -165,6 +178,16 @@ body{
 			}
 		}
 	}
+	
+	@media screen and (min-width: 768px){
+		max-width: 320px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		height: 50px;
+		font-size: 14px;
+	}
+
 }
 
 /*----------------------------------------------------------------------------------*/
@@ -196,6 +219,7 @@ body{
 	opacity: .8;
 	text-indent: -99999px;
 	overflow: hidden;
+	cursor: pointer;
 	span{
 		display: flex;
 		align-items: center;
@@ -231,14 +255,18 @@ body{
 		font-weight: 600;
 		font-size: 16px;
 		margin-bottom: 10px;
+		@media screen and (min-width: 768px){
+			font-size: 18px;
+		}
 	}
 	p{
 		font-size: 14px;
 		line-height: 1.6;
-		margin-bottom: 15px;
-		/*&:last-child{
-			margin-bottom: 0;
-		}*/
+		margin: 15px 0;
+		@media screen and (min-width: 768px){
+			font-size: 16px;
+			line-height: 1.8;
+		}
 	}
 	a{
 		font-size: 14px;
@@ -273,6 +301,9 @@ body{
 .idx-helpful-links{
 	padding: 20px;
 	background-color: #FFF;
+	margin-top: 15px;
+	display: inline-block;
+	width: auto;
 	h2, h3, h4{
 		font-weight: 600;
 		font-size: 16px;
@@ -283,6 +314,15 @@ body{
 		margin-bottom: 5px;
 		display: block;
 		color: #6b83b3;
+	}
+
+	@media screen and (min-width: 768px){
+		h2, h3, h4{
+			font-size: 18px;
+		}
+		a{
+			font-size: 16px;
+		}
 	}
 }
 
@@ -312,9 +352,17 @@ body{
 			width: auto;
 			align-items: center;
 			justify-content: center;
-			padding: 0 7px;
+			padding: 0 10px;
 			label{
 				margin-left: 3px;
+			}
+		}
+
+		@media screen and (min-width: 991px){
+			height: 45px;
+			font-size: 14px;
+			span{
+				padding: 0 15px;
 			}
 		}
 
@@ -351,6 +399,8 @@ body{
 	position: relative;
 	margin-left: -10px;
 	margin-right: -10px;
+	display: flex;
+	flex-wrap: wrap;
 	&:after{
 		content: "";
 		display: block;
@@ -360,9 +410,13 @@ body{
 		float: left;
 		padding: 0 10px;
 		width: 100%;
+		display: flex;
 		@media screen and (min-width: 640px){
 			width: 50%;
 			margin-bottom: 10px;
+		}
+		@media screen and (min-width: 991px){
+			width: 33.33%;
 		}
 	}
 }
