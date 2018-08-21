@@ -26,42 +26,72 @@
 				wrapperBulletsClass: 'idx-gs-wrapper-bullets',
 			},
 			onInited: function(){
-				$a = 0; $b = 0, $c = 0;
-				var $itemMap = $idxGsSlider.find('.idx-img-map:eq(0)').parents('.gs-item-slider').index() + 1;
+
+				$a = 0; //Contador de index para cada Bullet
+				$imgCount = 0, //Contador de imagenes
+				$mapCount = 0; //Contador de imagenes de mapa
+				$vidCount = 0; //Contador de videos
+
+				$htmlButtonImg = ""; //Boton de acción para las imagenes
+				$htmlButtonMap = ""; //Boton de acción para los mapas
+				$htmlButtonVid = ""; //Boton de acción para los videos
 
 				$idxGsSlider.find('.img-slider').each(function(){
-					var $thumbUrl = $(this).attr('data-lazy');
-					$idxGsSlider.find('.gs-bullet:eq('+$a+')').css({'background':'url('+$thumbUrl+')'});
-					$a+=1;
+					var $thumbUrl = $(this).attr('data-lazy'); // Recorremos los items del slider y obtenemos la ruta de la imagen
+					
+					//Contamos los items de cada caso
 					if($(this).hasClass('idx-img-map')){
-						$c+=1;	
+						$idxGsSlider.find('.gs-bullet:eq('+$a+')').css({'background':'url('+$thumbUrl+')'}); //Asignamos las imagenes de fondo a los bullets
+						$mapCount+=1;	
+					}else if($(this).hasClass('idx-img-vid')){
+						$idxGsSlider.find('.gs-bullet:eq('+$a+')').addClass("idx-ico-play").html("<span></span>"); //Asignamos las imagenes de fondo a los bullets
+						$vidCount+=1;
 					}else{
-						$b+=1;
+						$idxGsSlider.find('.gs-bullet:eq('+$a+')').css({'background':'url('+$thumbUrl+')'}); //Asignamos las imagenes de fondo a los bullets
+						$imgCount+=1;
 					}
+
+					//Inicializamos el conteno de los index por cada bullet
+					$a+=1;
 				});
 
-				if($("#idx-nph").length){ $("<label>("+$b+")</label>").appendTo('#idx-nph span'); }
-				if($("#idx-nmp").length){ $("<label>("+$c+")</label>").appendTo('#idx-nmp span'); }
+				//Generando los botones de acción para el nav del slider
+				if($imgCount>0){ $htmlButtonImg = '<button id="idx-btn-img" class="idx-btn-nav idx-icon-img"><span>Photos<label>('+$imgCount+')</label></span></button>' }
+				if($mapCount>0){ $htmlButtonMap = '<button id="idx-btn-map" class="idx-btn-nav idx-icon-map"><span>Mapa<label>('+$mapCount+')</label></span></button>' }
+				if($vidCount>0){ $htmlButtonVid = '<button id="idx-btn-vid" class="idx-btn-nav idx-icon-vid"><span>Video<label>('+$vidCount+')</label></span></button>' }
 
-				if($itemMap>0){
-					$('#idx-nmp').click(()=>{
-						$idxGsSliderGen.goTo($itemMap);
-					});
-				}
+				//Asignamos los botones en el contenedor
+				$(".idx-media-nav").html($htmlButtonImg+$htmlButtonMap+$htmlButtonVid);
 
-				$('#idx-nph').click(()=>{
+				//Obtenemos el primer item correspondiente al mapa y video
+				var $itemMap = $idxGsSlider.find('.idx-img-map:eq(0)').parents('.gs-item-slider').index() + 1;
+				var $itemVid = $idxGsSlider.find('.idx-img-vid:eq(0)').parents('.gs-item-slider').index() + 1;
+
+				//Asignamos la acción al boton de "Imagenes"
+				$('#idx-btn-img').click(()=>{
 					$idxGsSliderGen.goTo(1);
 				});
 
-				var $demo = $idxGsSlider.find('.gs-container-items');
+				//Asignamos la acción al boton de "Mapas"
+				$('#idx-btn-map').click(()=>{
+					$idxGsSliderGen.goTo($itemMap);
+				});
 
-				//asignando
-				$("<div class='idx-gs-nav-btn'><button class='gs-prev-arrow'><span></span></button><button class='gs-next-arrow'><span></span></button></div>").appendTo($demo);
+				//Asignamos la acción al boton de "Videos"
+				$('#idx-btn-vid').click(()=>{
+					$idxGsSliderGen.goTo($itemVid);
+				});
 
+				//Asignamos los botones de navegación
+				var $navButtons = $idxGsSlider.find('.gs-container-items');
+				$("<div class='idx-gs-nav-btn'><button class='gs-prev-arrow'><span></span></button><button class='gs-next-arrow'><span></span></button></div>").appendTo($navButtons);
+
+				//Asignamos la acción al boton de "NEXT"
 				$('.idx-gs-nav-btn .gs-next-arrow').click(()=>{
 					$idxGsSliderGen.goTo('next');
 				});
 
+				//Asignamos la acción al boton de "PREV"
 				$('.idx-gs-nav-btn .gs-prev-arrow').click(()=>{
 					$idxGsSliderGen.goTo('prev');
 				});
@@ -127,7 +157,19 @@
 		}
 	}
 
+	/*----------------------------------------------------------------------------------*/
+	/* Mostrar más propiedades
+	/*----------------------------------------------------------------------------------*/
+	$(document).on('click', '.idx-btn-sm', function(){
+		$(this).toggleClass('active');
+		$(this).parents('.idx-wrap').find('.idx-basic-list').toggleClass('active');
+	});
+
 }(jQuery));
+
+/*----------------------------------------------------------------------------------*/
+/* Funcion carga por demanda
+/*----------------------------------------------------------------------------------*/
 
 /*----------------------------------------------------------------------------------*/
 /* Generador de Gráficas

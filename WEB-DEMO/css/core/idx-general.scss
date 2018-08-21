@@ -155,7 +155,9 @@ body{
 			font-size: 14px;
 			margin-left: 10px;
 			z-index: 2;
+			transition: transform .3s;
 		}
+
 		&:before{
 			content: "";
 			display: block;
@@ -168,6 +170,29 @@ body{
 			background-color: rgba(0, 0, 0, 0.15);
 			opacity: 0;
 			transition: opacity .3s;
+		}
+
+		.idx-vm,
+		.idx-vl{
+			margin: 0 3px;
+		}
+
+		.idx-vl{
+			display: none;
+		}
+	}
+
+	&.active{
+		span{
+			.idx-vm{
+				display: none;
+			}
+			.idx-vl{
+				display: inline-block;
+			}
+			&:after{
+				transform: rotate(-180deg);
+			}
 		}
 	}
 
@@ -366,10 +391,10 @@ body{
 			}
 		}
 
-		&.idx-icon-photo{
+		&.idx-icon-img{
 			span{
 				&:before{
-					content: "\e90f";
+					content: "\e906";
 					font-family: $web-icons;
 					display: inline-block;
 					font-size: 16px;
@@ -382,6 +407,17 @@ body{
 			span{
 				&:before{
 					content: "\e903";
+					font-family: $web-icons;
+					display: inline-block;
+					font-size: 16px;
+					margin-right: 5px;
+				}
+			}
+		}
+		&.idx-icon-vid{
+			span{
+				&:before{
+					content: "\ea1c";
 					font-family: $web-icons;
 					display: inline-block;
 					font-size: 16px;

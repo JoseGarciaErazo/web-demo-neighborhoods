@@ -63,9 +63,18 @@ html(lang='en')
 							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_3.jpg").img-slider.gs-lazy
 							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_4.jpg").img-slider.gs-lazy
 							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_5.jpg").img-slider.gs-lazy
-							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_6.jpg").img-slider.gs-lazy.idx-img-map
-							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_7.jpg").img-slider.gs-lazy.idx-img-map
-							.idx-gs-sl-item: img(data-lazy="//retsimages.s3.amazonaws.com/35/A10487435_8.jpg").img-slider.gs-lazy.idx-img-map
+							.idx-gs-sl-item
+								img(data-lazy="images/mapa1.png").img-slider.gs-lazy.idx-img-map
+								a(href="#", traget="_blank").idx-caption Click here to dowload the PDF
+							.idx-gs-sl-item
+								img(data-lazy="images/mapa2.png").img-slider.gs-lazy.idx-img-map
+								a(href="#", traget="_blank").idx-caption Click here to dowload the PDF
+							.idx-gs-sl-item
+								img(data-lazy="images/mapa3.png").img-slider.gs-lazy.idx-img-map
+								a(href="#", traget="_blank").idx-caption Click here to dowload the PDF
+							.idx-gs-sl-item: iframe(width="100%",height="487px",data-lazy="https://www.youtube.com/embed/v2AC41dglnM?rel=0&amp;showinfo=0",frameborder="0", allow="autoplay; encrypted-media", allowfullscreen).img-slider.gs-lazy.idx-img-vid
+							.idx-gs-sl-item: iframe(width="100%",height="487px",data-lazy="https://www.youtube.com/embed/P5ZJui3aPoQ?rel=0&amp;showinfo=0",frameborder="0", allow="autoplay; encrypted-media", allowfullscreen).img-slider.gs-lazy.idx-img-vid
+
 
 				.idx-wrap-media
 
@@ -90,7 +99,7 @@ html(lang='en')
 			h2.idx-st-title Neighborhoods
 			.idx-wrap
 				.idx-basic-list
-					- for(b = 0; b < 12; b++)
+					- for(b = 0; b < 8; b++)
 						.idx-basic-item
 							.idx-grid-ng
 								.idx-grid-ng-img
@@ -101,7 +110,11 @@ html(lang='en')
 								.idx-grid-ng-btn
 									a(href="#"): span view
 								.idx-grid-tag $1.65M - $2.75M
-				button.idx-btn-sm: span View more neighborhoods
+				button.idx-btn-sm
+					span View 
+						label.idx-vm more 
+						label.idx-vl fewer
+						|neighborhoods
 		
 		//Property Data information
 		section.idx-mg-st.idx-bg-gray

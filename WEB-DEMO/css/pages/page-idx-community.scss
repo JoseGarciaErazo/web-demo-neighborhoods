@@ -50,4 +50,24 @@
 			}
 		}
 	}
+
+	#idx-section-b{
+		.idx-basic-list{
+			.idx-basic-item{
+				&:nth-child(n+5){
+					max-height: 0;
+					transition: max-height .3s ease-out;
+					overflow: hidden;
+				}
+			}
+			&.active{
+				.idx-basic-item{
+					&:nth-child(n+5){
+						max-height: 500px;
+						transition: max-height .4s ease-in;
+					}
+				}
+			}
+		}
+	}
 }
