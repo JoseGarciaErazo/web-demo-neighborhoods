@@ -1,5 +1,146 @@
+/*----------------------------------------------------------------------------------*/
+/* Funcion carga por demanda
+/*----------------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------------*/
+/* Generador de Gráficas
+/*----------------------------------------------------------------------------------*/
+function graphGenerator(graphElement){
+	var graphElementData = JSON.parse($("#"+graphElement).attr('data-element'));
+	var graphElementLabels = JSON.parse($("#"+graphElement).attr('data-labels'));
+	var ctx = document.getElementById(graphElement).getContext('2d');
+	var myChart = new Chart(ctx, {
+	    type: 'bar',
+	    responsive: true,
+	    data: {
+        labels: graphElementLabels,
+        datasets: [{
+          label: "",
+          data: graphElementData,
+          backgroundColor: "rgba(101, 131, 193, 0.3)",
+          borderWidth: 2,
+        }]
+	    },
+	    options: {
+        scaleFontColor: 'red',
+        scales: {
+          yAxes: [{
+              ticks: {
+                  beginAtZero:true,
+                  fontColor: "#FFF"
+              }
+          }],
+          xAxes: [{
+            ticks: {
+              fontColor: "#FFF"
+            }
+          }],
+        },
+        legend: {
+          display: false
+        },
+        tooltips: {
+          yAlign: 'bottom',
+          displayColors: false,
+          callbacks: {
+            label: function(tooltipItem, data) {
+                return data.labels[tooltipItem.index] + ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+            },
+            title: function(tooltipItem, data) {
+              return;
+            }
+          }
+        }
+	    }
+	});
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Mostrar Video
+/*----------------------------------------------------------------------------------*/
+function creaIframeVideo(elBoton){ //final
+  var $urlVideo = elBoton.attr('data-video');
+  if ($urlVideo !== undefined) {
+    var $urlVideo = $urlVideo.toString();
+    if ($urlVideo.indexOf('youtube') !== -1) { // es un video de Youtube, EJM: https://www.youtube.com/watch?v=9RBSH7Xvn3Q
+      // primer limpiesa
+      var et = $urlVideo.lastIndexOf('&')
+      if(et !== -1){
+        $urlVideo = $urlVideo.substring(0, et)
+      }
+      var embed = $urlVideo.indexOf('embed');
+      if (embed !== -1) {
+        $urlVideo = 'https://www.youtube.com/watch?v=' + $urlVideo.substring(embed + 6, embed + 17);
+      }
+      var srcVideo = 'https://www.youtube.com/embed/' + $urlVideo.substring($urlVideo.length - 11, $urlVideo.length) + '?autoplay=1';
+    } else if ($urlVideo.indexOf('vimeo') !== -1) { // es un video de Vimeo, EJM: https://vimeo.com/206418873
+      var srcVideo = 'https://player.vimeo.com/video/' + $urlVideo.substring(($urlVideo.indexOf('.com') + 5), $urlVideo.length).replace('/', '');
+    } else {
+      alert('The video assigned is not from Youtube or Vimeo, remember to enter the correct complete link of the video .\n - Youtube: https://www.youtube.com/watch?v=9RBSH7Xvn3Q\n - Vimeo: https://vimeo.com/206418873');
+      return false;
+    }
+    return '<iframe src="' + srcVideo + '" frameborder="0" allowfullscreen></iframe>';
+  } else {
+    alert('No video assigned.');
+    return false;
+  }
+}
+
+/*
+$(document).ready(function () {
+    $(document).on("scroll", onScroll);
+    
+    //smoothscroll
+    $('a[href^="#"]').on('click', function (e) {
+        e.preventDefault();
+        $(document).off("scroll");
+        
+        $('a').each(function () {
+            $(this).removeClass('active');
+        })
+        $(this).addClass('active');
+      
+        var target = this.hash,
+            menu = target;
+        $target = $(target);
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top+2
+        }, 500, 'swing', function () {
+            window.location.hash = target;
+            $(document).on("scroll", onScroll);
+        });
+    });
+});
+*/
+
+/*----------------------------------------------------------------------------------*/
+/* Activar item del menú según se hace scroll
+/*----------------------------------------------------------------------------------*/
+function onScroll(event){
+  var scrollPos = $(document).scrollTop();
+  $('.idx-nav-int-content ul li a').each(function () {
+    var currLink = $(this);
+    var refElement = $(currLink.attr("href"));
+    if (((refElement.position().top) - 50) <= scrollPos && ((refElement.position().top) - 50) + refElement.height() > scrollPos) {
+      $('.idx-nav-int-content ul li a').removeClass("active");
+      currLink.addClass("active");
+    }
+    else{
+       currLink.removeClass("active");
+    }
+  });
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Generando los scripts
+/*----------------------------------------------------------------------------------*/
 (function($) {
 
+	$(document).on("load, scroll", onScroll);
+
+	/*----------------------------------------------------------------------------------*/
+	/* Cargamos las gráficas
+	/*----------------------------------------------------------------------------------*/
 	var graphElement1 = "chart1";
 	graphGenerator(graphElement1);
 
@@ -56,7 +197,7 @@
 				});
 
 				//Generando los botones de acción para el nav del slider
-				if($imgCount>0){ $htmlButtonImg = '<button id="idx-btn-img" class="idx-btn-nav idx-icon-img"><span>Photos<label>('+$imgCount+')</label></span></button>' }
+				if($imgCount>0){ $htmlButtonImg = '<button id="idx-btn-img" class="idx-btn-nav idx-icon-img active"><span>Photos<label>('+$imgCount+')</label></span></button>' }
 				if($mapCount>0){ $htmlButtonMap = '<button id="idx-btn-map" class="idx-btn-nav idx-icon-map"><span>Mapa<label>('+$mapCount+')</label></span></button>' }
 				if($vidCount>0){ $htmlButtonVid = '<button id="idx-btn-vid" class="idx-btn-nav idx-icon-vid"><span>Video<label>('+$vidCount+')</label></span></button>' }
 
@@ -67,19 +208,21 @@
 				var $itemMap = $idxGsSlider.find('.idx-img-map:eq(0)').parents('.gs-item-slider').index() + 1;
 				var $itemVid = $idxGsSlider.find('.idx-img-vid:eq(0)').parents('.gs-item-slider').index() + 1;
 
-				//Asignamos la acción al boton de "Imagenes"
-				$('#idx-btn-img').click(()=>{
-					$idxGsSliderGen.goTo(1);
-				});
-
-				//Asignamos la acción al boton de "Mapas"
-				$('#idx-btn-map').click(()=>{
-					$idxGsSliderGen.goTo($itemMap);
-				});
-
-				//Asignamos la acción al boton de "Videos"
-				$('#idx-btn-vid').click(()=>{
-					$idxGsSliderGen.goTo($itemVid);
+				//Asignamos la acción al botones de navegación en el slider
+				$(document).on('click', '.idx-media-nav .idx-btn-nav', function(){
+					$(".idx-media-nav .idx-btn-nav").removeClass("active");
+					$(this).addClass("active");
+					switch ($(this).attr('id').split(' ')[0]){
+						case 'idx-btn-img':
+							$idxGsSliderGen.goTo(1);
+							break
+						case 'idx-btn-map':
+							$idxGsSliderGen.goTo($itemMap);
+							break
+						case 'idx-btn-vid':
+							$idxGsSliderGen.goTo($itemVid);
+							break
+					}
 				});
 
 				//Asignamos los botones de navegación
@@ -165,61 +308,28 @@
 		$(this).parents('.idx-wrap').find('.idx-basic-list').toggleClass('active');
 	});
 
+	/*----------------------------------------------------------------------------------*/
+	/* Mostrar video
+	/*----------------------------------------------------------------------------------*/
+	$(document).on('click', '.idx-btn-play', function(e) {
+    e.preventDefault();
+    var $iframeVideo = creaIframeVideo($(this));
+    if ($iframeVideo) {
+      var $wrapperVideo = $('#idx-wrap-video');
+      $wrapperVideo = $("body");
+      $wrapperVideo.append('<div class="idx-video-inside"><div class="idx-iframe"><div class="idx-wrap-iframe">' + $iframeVideo + '</div></div><button class="idx-modal-close"><span></span></button><div class="idx-modal-bg-close"></div></div>');
+      setTimeout(function(){
+        $wrapperVideo.find('.idx-video-inside').addClass('active');
+      }, 500)
+    }
+  });
+
+  $(document).on('click', '.idx-modal-close, .idx-modal-bg-close', function(){
+    var $elParent = $(this).parent();
+    $("body").find('.idx-video-inside').removeClass('active');
+    setTimeout(function(){
+      $elParent.remove();
+    }, 500)
+  });
+
 }(jQuery));
-
-/*----------------------------------------------------------------------------------*/
-/* Funcion carga por demanda
-/*----------------------------------------------------------------------------------*/
-
-/*----------------------------------------------------------------------------------*/
-/* Generador de Gráficas
-/*----------------------------------------------------------------------------------*/
-function graphGenerator(graphElement){
-	var graphElementData = JSON.parse($("#"+graphElement).attr('data-element'));
-	var graphElementLabels = JSON.parse($("#"+graphElement).attr('data-labels'));
-	var ctx = document.getElementById(graphElement).getContext('2d');
-	var myChart = new Chart(ctx, {
-	    type: 'bar',
-	    responsive: true,
-	    data: {
-        labels: graphElementLabels,
-        datasets: [{
-          label: "",
-          data: graphElementData,
-          backgroundColor: "rgba(101, 131, 193, 0.3)",
-          borderWidth: 2,
-        }]
-	    },
-	    options: {
-        scaleFontColor: 'red',
-        scales: {
-          yAxes: [{
-              ticks: {
-                  beginAtZero:true,
-                  fontColor: "#FFF"
-              }
-          }],
-          xAxes: [{
-            ticks: {
-              fontColor: "#FFF"
-            }
-          }],
-        },
-        legend: {
-          display: false
-        },
-        tooltips: {
-          yAlign: 'bottom',
-          displayColors: false,
-          callbacks: {
-            label: function(tooltipItem, data) {
-                return data.labels[tooltipItem.index] + ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-            },
-            title: function(tooltipItem, data) {
-              return;
-            }
-          }
-        }
-	    }
-	});
-}

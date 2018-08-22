@@ -39,22 +39,20 @@ html(lang='en')
 		.idx-nav-int-content
 			nav
 				ul
-					li: a(href="#") Overview
-					li: a(href="#") Neighborhoods
-					li: a(href="#") Data & Market Conditions
-					li: a(href="#") Schools & History
-					li: a(href="#") Residents
-					li: a(href="#") Properties
-					li: a(href="#") Other Communities
+					li: a(href="#overview") Overview
+					li: a(href="#neighborhoods") Neighborhoods
+					li: a(href="#data-and-market-conditions") Data & Market Conditions
+					li: a(href="#schools-and-history") Schools & History
+					//li: a(href="#residents") Residents
+					//li: a(href="#properties") Properties
+					li: a(href="#other-communities") Other Communities
 
 		//Property information
-		section.idx-mg-st#idx-section-a
+		section.idx-mg-st#overview
 			h2.idx-hidden-title Property information
 			.idx-wrap
 				.idx-wrap-slider
 					.idx-media-nav
-						button#idx-nph.idx-btn-nav.idx-icon-photo: span Photos
-						button#idx-nmp.idx-btn-nav.idx-icon-map: span Maps
 					
 					.idx-slider-content
 						#idx-gs-slider
@@ -88,14 +86,14 @@ html(lang='en')
 						h3.idx-card-caption An Overview of Burlingame
 						.idx-card-img
 							img(src="//retsimages.s3.amazonaws.com/35/A10487435_1.jpg")
-						.idx-btn-play view video 
+						.idx-btn-play(data-video="https://www.youtube.com/watch?v=Qux02q6tTZ4") view video 
 							span
 
 				.idx-basic-description
 					p With excellent, top rated public elementary and middle schools coupled with high parental involvement, Burlingame boasts one of the premier public high schools on the peninsula, not only known for its academics, but a fine sporting facility as well, which is shared with Burlingame residents and non-residents alike. The facilities include an aquatic center with a state-of-the-art Colorado timing system, a seven lane track (which would have been the site of the Olympic trials along with Stanford University had San Francisco been nominated as the U.S. host for the 2012 games!), two gymnasiums, eight tennis courts, and five football, soccer, and baseball fields.
 
 		//Neighborhood list
-		section.idx-mg-st#idx-section-b
+		section.idx-mg-st#neighborhoods
 			h2.idx-st-title Neighborhoods
 			.idx-wrap
 				.idx-basic-list
@@ -117,7 +115,7 @@ html(lang='en')
 						|neighborhoods
 		
 		//Property Data information
-		section.idx-mg-st.idx-bg-gray
+		section.idx-mg-st.idx-bg-gray#data-and-market-conditions
 			h2.idx-st-title Data & Market Conditions
 			.idx-wrap
 				.idx-wrap-table-ct
@@ -226,7 +224,7 @@ html(lang='en')
 								span.idx-graph-detail Percent of list price
 
 		//Property History
-		section.idx-mg-st.idx-bg-gray-light
+		section.idx-mg-st.idx-bg-gray-light#schools-and-history
 			h2.idx-st-title Schools & history
 			.idx-wrap
 				article.idx-basic-description
@@ -244,7 +242,7 @@ html(lang='en')
 						li: a(href="#") School Videos and Pricipal Interviews
 		
 		//More Properties 
-		section.idx-ng-st
+		section.idx-ng-st#other-communities
 			.idx-section-header
 				h2.idx-st-title Other Communities
 				

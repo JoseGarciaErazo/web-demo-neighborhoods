@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'ng-icons';
-  src:  url('fonts/ng-icons.eot?kis4ol');
-  src:  url('fonts/ng-icons.eot?kis4ol#iefix') format('embedded-opentype'),
-    url('fonts/ng-icons.ttf?kis4ol') format('truetype'),
-    url('fonts/ng-icons.woff?kis4ol') format('woff'),
-    url('fonts/ng-icons.svg?kis4ol#ng-icons') format('svg');
+  src:  url('fonts/ng-icons.eot?5s5tza');
+  src:  url('fonts/ng-icons.eot?5s5tza#iefix') format('embedded-opentype'),
+    url('fonts/ng-icons.ttf?5s5tza') format('truetype'),
+    url('fonts/ng-icons.woff?5s5tza') format('woff'),
+    url('fonts/ng-icons.svg?5s5tza#ng-icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,6 +24,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.ng-icon-eye:before {
+  content: "\e9ce";
+}
+.ng-icon-eye-blocked:before {
+  content: "\e9d1";
+}
+.ng-icon-close:before {
+  content: "\e907";
+}
 .ng-icon-image:before {
   content: "\e906";
 }
@@ -107,10 +116,4 @@
 }
 .ng-icon-single-facebook:before {
   content: "\ea90";
-}
-.ng-icon-eye:before {
-  content: "\e9ce";
-}
-.ng-icon-eye-blocked:before {
-  content: "\e9d1";
 }

@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'ng-icons';
-  src:  url('fonts/ng-icons.eot?68t5cg');
-  src:  url('fonts/ng-icons.eot?68t5cg#iefix') format('embedded-opentype'),
-    url('fonts/ng-icons.ttf?68t5cg') format('truetype'),
-    url('fonts/ng-icons.woff?68t5cg') format('woff'),
-    url('fonts/ng-icons.svg?68t5cg#ng-icons') format('svg');
+  src:  url('fonts/ng-icons.eot?kis4ol');
+  src:  url('fonts/ng-icons.eot?kis4ol#iefix') format('embedded-opentype'),
+    url('fonts/ng-icons.ttf?kis4ol') format('truetype'),
+    url('fonts/ng-icons.woff?kis4ol') format('woff'),
+    url('fonts/ng-icons.svg?kis4ol#ng-icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,6 +24,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.ng-icon-image:before {
+  content: "\e906";
+}
 .ng-icon-single-pinterest:before {
   content: "\e901";
 }
