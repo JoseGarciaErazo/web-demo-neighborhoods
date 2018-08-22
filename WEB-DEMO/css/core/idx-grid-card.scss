@@ -8,6 +8,9 @@
 	width: 100%;
 	.idx-grid-ng-img{
 		position: relative;
+		background-color: #333;
+		background-size: cover;
+		background-position: center;
 		&:after{
 			content: "";
 			display: block;
@@ -23,7 +26,8 @@
 				left: 0;
 				width: 100%;
 				height: 100%;
-				background: linear-gradient(to top, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.01) 100%);
+				//background: linear-gradient(to top, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.01) 100%);
+				background: linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 100%);
 				z-index: 1;
 			}
 		}
@@ -36,6 +40,8 @@
 			position: absolute;
 			object-fit: cover;
 			z-index: 0;
+			opacity: 0;
+			transition: opacity .6s;
 		}
 
 		.idx-grid-ng-information{
@@ -73,6 +79,12 @@
 					color: #FFF;
 					text-transform: uppercase;
 				}
+			}
+		}
+
+		&.loaded{
+			img{
+				opacity: 1;
 			}
 		}
 	}

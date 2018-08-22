@@ -4,24 +4,6 @@
 $opensans : 'Open Sans', sans-serif;
 $web-icons: 'ng-icons' !important;
 
-.idx-bg-gray{
-	background: #e6e4df;
-	.idx-st-title{
-		&:before{
-	  	border-color: #cccbc6;
-	  }
-	}
-}
-
-.idx-bg-gray-light{
-	background: #f7f6f0;
-	.idx-st-title{
-		&:before{
-	  	border-color: #dbdad6;
-	  }
-	}
-}
-
 body{
 	background-color: #fff;
 	color: #333;
@@ -37,12 +19,74 @@ body{
 	overflow-x: hidden;
 }
 
+/*----------------------------------------------------------------------------------*/
+/* Loading
+/*----------------------------------------------------------------------------------*/
+.loading{
+	&:before{
+		content: "";
+		position: absolute;
+		top: 50% !important;
+		left: 50% !important;
+		margin-left: -25px !important;
+		margin-top: -25px !important;
+		width: 50px !important;
+		height: 50px !important;
+		border-radius: 50%;
+		border: 10px solid #ccc;
+		border-top-color: #e6992e;
+		border-width: 5px;
+		animation: spin 1s infinite linear;
+		z-index: 2;
+		display: block;
+	}
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Fondo Gris
+/*----------------------------------------------------------------------------------*/
+.idx-bg-gray{
+	background: #e6e4df;
+	.idx-st-title{
+		&:before{
+	  	border-color: #cccbc6;
+	  }
+	}
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Fondo Gris bajo
+/*----------------------------------------------------------------------------------*/
+.idx-bg-gray-light{
+	background: #f7f6f0;
+	.idx-st-title{
+		&:before{
+	  	border-color: #dbdad6;
+	  }
+	}
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Texto oculto
+/*----------------------------------------------------------------------------------*/
 .idx-hidden-title{
 	overflow:hidden;
 	height: 0;
 	width: 0;
 }
 
+/*----------------------------------------------------------------------------------*/
+/* Margen básico
+/*----------------------------------------------------------------------------------*/
 .idx-mg-st{
 	overflow: hidden;
 	padding: 20px 10px 30px 10px;
@@ -469,6 +513,8 @@ body{
 	z-index: 999;
 	opacity: 0;
 	transition: opacity .3s;
+	top: 0;
+	left: 0;
 	.idx-iframe{
 		position: relative;
 		padding: 15px;

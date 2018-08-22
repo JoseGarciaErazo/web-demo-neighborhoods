@@ -1,161 +1,35 @@
-/*----------------------------------------------------------------------------------*/
-/* Funcion carga por demanda
-/*----------------------------------------------------------------------------------*/
+var userAgent, ieReg, ie;
+userAgent = window.navigator.userAgent;
+ieReg = /msie|Trident.*rv[ :]*11\./gi;
+ie = ieReg.test(userAgent);
 
 /*----------------------------------------------------------------------------------*/
-/* Generador de Gráficas
+/* Funcion que carga las imagenes (validación para explorer)
 /*----------------------------------------------------------------------------------*/
-function graphGenerator(graphElement){
-	var graphElementData = JSON.parse($("#"+graphElement).attr('data-element'));
-	var graphElementLabels = JSON.parse($("#"+graphElement).attr('data-labels'));
-	var ctx = document.getElementById(graphElement).getContext('2d');
-	var myChart = new Chart(ctx, {
-	    type: 'bar',
-	    responsive: true,
-	    data: {
-        labels: graphElementLabels,
-        datasets: [{
-          label: "",
-          data: graphElementData,
-          backgroundColor: "rgba(101, 131, 193, 0.3)",
-          borderWidth: 2,
-        }]
-	    },
-	    options: {
-        scaleFontColor: 'red',
-        scales: {
-          yAxes: [{
-              ticks: {
-                  beginAtZero:true,
-                  fontColor: "#FFF"
-              }
-          }],
-          xAxes: [{
-            ticks: {
-              fontColor: "#FFF"
-            }
-          }],
-        },
-        legend: {
-          display: false
-        },
-        tooltips: {
-          yAlign: 'bottom',
-          displayColors: false,
-          callbacks: {
-            label: function(tooltipItem, data) {
-                return data.labels[tooltipItem.index] + ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-            },
-            title: function(tooltipItem, data) {
-              return;
-            }
-          }
-        }
-	    }
-	});
+function loadImage(element){
+	if(ie) {
+		element.css("backgroundImage", 'url(' + element.find('.gs-lazy').attr('data-lazy') + ')');
+		element.find('.gs-lazy').remove();
+		if(!element.hasClass('loaded')) element.addClass('loaded');
+	}else{
+		if(!element.hasClass('loading')) element.addClass('loading');
+			element.find('.gs-lazy').attr('src', element.find('.gs-lazy').attr('data-lazy'));
+			element.find('.gs-lazy').on('load', function(){
+				element.removeClass('idx-blazy loading');
+				element.find('.gs-lazy').removeAttr('data-lazy');
+				if(!element.hasClass('loaded')) element.addClass('loaded');
+		});
+	}
 }
 
 /*----------------------------------------------------------------------------------*/
-/* Mostrar Video
+/* Construyendo el slider en la propiedad
 /*----------------------------------------------------------------------------------*/
-function creaIframeVideo(elBoton){ //final
-  var $urlVideo = elBoton.attr('data-video');
-  if ($urlVideo !== undefined) {
-    var $urlVideo = $urlVideo.toString();
-    if ($urlVideo.indexOf('youtube') !== -1) { // es un video de Youtube, EJM: https://www.youtube.com/watch?v=9RBSH7Xvn3Q
-      // primer limpiesa
-      var et = $urlVideo.lastIndexOf('&')
-      if(et !== -1){
-        $urlVideo = $urlVideo.substring(0, et)
-      }
-      var embed = $urlVideo.indexOf('embed');
-      if (embed !== -1) {
-        $urlVideo = 'https://www.youtube.com/watch?v=' + $urlVideo.substring(embed + 6, embed + 17);
-      }
-      var srcVideo = 'https://www.youtube.com/embed/' + $urlVideo.substring($urlVideo.length - 11, $urlVideo.length) + '?autoplay=1';
-    } else if ($urlVideo.indexOf('vimeo') !== -1) { // es un video de Vimeo, EJM: https://vimeo.com/206418873
-      var srcVideo = 'https://player.vimeo.com/video/' + $urlVideo.substring(($urlVideo.indexOf('.com') + 5), $urlVideo.length).replace('/', '');
-    } else {
-      alert('The video assigned is not from Youtube or Vimeo, remember to enter the correct complete link of the video .\n - Youtube: https://www.youtube.com/watch?v=9RBSH7Xvn3Q\n - Vimeo: https://vimeo.com/206418873');
-      return false;
-    }
-    return '<iframe src="' + srcVideo + '" frameborder="0" allowfullscreen></iframe>';
-  } else {
-    alert('No video assigned.');
-    return false;
-  }
-}
-
-/*
-$(document).ready(function () {
-    $(document).on("scroll", onScroll);
-    
-    //smoothscroll
-    $('a[href^="#"]').on('click', function (e) {
-        e.preventDefault();
-        $(document).off("scroll");
-        
-        $('a').each(function () {
-            $(this).removeClass('active');
-        })
-        $(this).addClass('active');
-      
-        var target = this.hash,
-            menu = target;
-        $target = $(target);
-        $('html, body').stop().animate({
-            'scrollTop': $target.offset().top+2
-        }, 500, 'swing', function () {
-            window.location.hash = target;
-            $(document).on("scroll", onScroll);
-        });
-    });
-});
-*/
-
-/*----------------------------------------------------------------------------------*/
-/* Activar item del menú según se hace scroll
-/*----------------------------------------------------------------------------------*/
-function onScroll(event){
-  var scrollPos = $(document).scrollTop();
-  $('.idx-nav-int-content ul li a').each(function () {
-    var currLink = $(this);
-    var refElement = $(currLink.attr("href"));
-    if (((refElement.position().top) - 50) <= scrollPos && ((refElement.position().top) - 50) + refElement.height() > scrollPos) {
-      $('.idx-nav-int-content ul li a').removeClass("active");
-      currLink.addClass("active");
-    }
-    else{
-       currLink.removeClass("active");
-    }
-  });
-}
-
-/*----------------------------------------------------------------------------------*/
-/* Generando los scripts
-/*----------------------------------------------------------------------------------*/
-(function($) {
-
-	$(document).on("load, scroll", onScroll);
-
-	/*----------------------------------------------------------------------------------*/
-	/* Cargamos las gráficas
-	/*----------------------------------------------------------------------------------*/
-	var graphElement1 = "chart1";
-	graphGenerator(graphElement1);
-
-	var graphElement2 = "chart2";
-	graphGenerator(graphElement2);
-
-	var graphElement3 = "chart3";
-	graphGenerator(graphElement3);
-
-	/*----------------------------------------------------------------------------------*/
-	/* Construyendo el slider en la propiedad
-	/*----------------------------------------------------------------------------------*/
-	var $idxGsSlider = $('#idx-gs-slider');
+function loadPropertySlider(element){
+	var $idxGsSlider = $('#'+element);
+	$idxGsSlider.removeClass('idx-blazy');
 	if($idxGsSlider.length){
-		let $idxGsSliderGen = $idxGsSlider.greatSlider({
+		var $idxGsSliderGen = $idxGsSlider.greatSlider({
 			type: 'swipe',
 			nav: false,
 			navSpeed: 500,
@@ -230,32 +104,34 @@ function onScroll(event){
 				$("<div class='idx-gs-nav-btn'><button class='gs-prev-arrow'><span></span></button><button class='gs-next-arrow'><span></span></button></div>").appendTo($navButtons);
 
 				//Asignamos la acción al boton de "NEXT"
-				$('.idx-gs-nav-btn .gs-next-arrow').click(()=>{
+				$('.idx-gs-nav-btn .gs-next-arrow').click(function(){
 					$idxGsSliderGen.goTo('next');
 				});
 
 				//Asignamos la acción al boton de "PREV"
-				$('.idx-gs-nav-btn .gs-prev-arrow').click(()=>{
+				$('.idx-gs-nav-btn .gs-prev-arrow').click(function(){
 					$idxGsSliderGen.goTo('prev');
 				});
 			}
 		});
 	}
+}
 
-	/*----------------------------------------------------------------------------------*/
-	/* Construyendo slider general
-	/*----------------------------------------------------------------------------------*/
-	var $generalSlider = $(".idx-general-slider");
-	let $generalSliderGen;
+/*----------------------------------------------------------------------------------*/
+/* Construyendo slider general
+/*----------------------------------------------------------------------------------*/
+function loadGenSlider(element){
+	var $generalSlider = $('#'+element);
 	if($generalSlider.length) {
-		$generalSliderGen = $generalSlider.greatSlider({
+		var $generalSliderGen = $generalSlider.greatSlider({
 			type: 'swipe',
 			nav: false,
 			lazyLoad: true,
 			bullets: false,
 			items: 1,
 			layout: {
-				arrowDefaultStyles: false
+				arrowDefaultStyles: false,
+				itemLoadingClass: ''
 			},
 			breakPoints: {
 				640: {
@@ -273,6 +149,10 @@ function onScroll(event){
 				setTimeout(function(){ 
 					loadActiveItem();
 				}, 300);
+
+				$generalSlider.find('.idx-grid-ng-img').each(function(){
+					loadImage($(this));
+				});
 			},
 			onStepStart: function(){
 				loadActiveItem();
@@ -299,6 +179,136 @@ function onScroll(event){
 			}
 		}
 	}
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Generador de Gráficas
+/*----------------------------------------------------------------------------------*/
+function graphGenerator(graphElement){
+	var graphElementData = JSON.parse($("#"+graphElement).attr('data-element'));
+	var graphElementLabels = JSON.parse($("#"+graphElement).attr('data-labels'));
+	var ctx = document.getElementById(graphElement).getContext('2d');
+	var myChart = new Chart(ctx, {
+	    type: 'bar',
+	    responsive: true,
+	    data: {
+        labels: graphElementLabels,
+        datasets: [{
+          label: "",
+          data: graphElementData,
+          backgroundColor: "rgba(101, 131, 193, 0.3)",
+          borderWidth: 2,
+        }]
+	    },
+	    options: {
+        scaleFontColor: 'red',
+        scales: {
+          yAxes: [{
+              ticks: {
+                  beginAtZero:true,
+                  fontColor: "#FFF"
+              }
+          }],
+          xAxes: [{
+            ticks: {
+              fontColor: "#FFF"
+            }
+          }],
+        },
+        legend: {
+          display: false
+        },
+        tooltips: {
+          yAlign: 'bottom',
+          displayColors: false,
+          callbacks: {
+            label: function(tooltipItem, data) {
+                return data.labels[tooltipItem.index] + ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+            },
+            title: function(tooltipItem, data) {
+              return;
+            }
+          }
+        }
+	    }
+	});
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Mostrar Video
+/*----------------------------------------------------------------------------------*/
+function creaIframeVideo(elBoton){
+  var $urlVideo = elBoton.attr('data-video');
+  if ($urlVideo !== undefined) {
+    var $urlVideo = $urlVideo.toString();
+    if ($urlVideo.indexOf('youtube') !== -1) { // es un video de Youtube, EJM: https://www.youtube.com/watch?v=9RBSH7Xvn3Q
+      // primer limpiesa
+      var et = $urlVideo.lastIndexOf('&')
+      if(et !== -1){
+        $urlVideo = $urlVideo.substring(0, et)
+      }
+      var embed = $urlVideo.indexOf('embed');
+      if (embed !== -1) {
+        $urlVideo = 'https://www.youtube.com/watch?v=' + $urlVideo.substring(embed + 6, embed + 17);
+      }
+      var srcVideo = 'https://www.youtube.com/embed/' + $urlVideo.substring($urlVideo.length - 11, $urlVideo.length) + '?autoplay=1';
+    } else if ($urlVideo.indexOf('vimeo') !== -1) { // es un video de Vimeo, EJM: https://vimeo.com/206418873
+      var srcVideo = 'https://player.vimeo.com/video/' + $urlVideo.substring(($urlVideo.indexOf('.com') + 5), $urlVideo.length).replace('/', '');
+    } else {
+      alert('The video assigned is not from Youtube or Vimeo, remember to enter the correct complete link of the video .\n - Youtube: https://www.youtube.com/watch?v=9RBSH7Xvn3Q\n - Vimeo: https://vimeo.com/206418873');
+      return false;
+    }
+    return '<iframe src="' + srcVideo + '" frameborder="0" allowfullscreen></iframe>';
+  } else {
+    alert('No video assigned.');
+    return false;
+  }
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Activar item del menú según se hace scroll
+/*----------------------------------------------------------------------------------*/
+function onScroll(event){
+  var scrollPos = $(document).scrollTop();
+  $('#idx-internal-nav li a').each(function () {
+  	var $elementSection = $($(this).attr('href'));
+  	if(($elementSection.offset().top-60) <= scrollPos && ($elementSection.offset().top-60) + ($elementSection.height() - 60) > scrollPos){
+			$('#idx-internal-nav li a').removeClass("active");
+			$(this).addClass("active");
+  	}else{
+  		$(this).removeClass("active");
+  	}
+  });
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Carga por demanda
+/*----------------------------------------------------------------------------------*/
+function loadElement(theItem) {
+
+	theItem.each(function(){
+		var $lazyType = $(this).attr('data-type').split(' ')[0];
+
+		switch ($lazyType){
+			case 'img':
+				loadImage($(this))
+				break
+			case 'graph':
+				graphGenerator($(this).find('canvas').attr('id'));
+				break
+			case 'main-slider':
+				loadPropertySlider($(this).attr('id'))
+				break
+			case 'gen-slider':
+				loadGenSlider($(this).attr('id'))
+				break
+		}
+	});
+}
+
+(function($) {
+
+	$(document).on("load, scroll", onScroll);
 
 	/*----------------------------------------------------------------------------------*/
 	/* Mostrar más propiedades
@@ -309,7 +319,27 @@ function onScroll(event){
 	});
 
 	/*----------------------------------------------------------------------------------*/
-	/* Mostrar video
+	/* Navegacion interna
+	/*----------------------------------------------------------------------------------*/
+  $(document).on('click', '#idx-internal-nav li a', function(e) {
+		e.preventDefault();
+    $(document).off("scroll");
+    $('#idx-internal-nav li a').each(function () {
+        $(this).removeClass('active');
+    })
+    $(this).addClass('active');
+    var target = this.hash, menu = target;
+    $target = $(target);
+    $('html, body').stop().animate({
+        'scrollTop': $target.offset().top-30
+    }, 500, 'swing', function () {
+      //window.location.hash = target;
+      $(document).on("scroll", onScroll);
+    });
+  });
+
+	/*----------------------------------------------------------------------------------*/
+	/* Mostrar y cerrar video
 	/*----------------------------------------------------------------------------------*/
 	$(document).on('click', '.idx-btn-play', function(e) {
     e.preventDefault();
@@ -331,5 +361,25 @@ function onScroll(event){
       $elParent.remove();
     }, 500)
   });
+
+	/*----------------------------------------------------------------------------------*/
+	/* Cargando secciones por demanda
+	/*----------------------------------------------------------------------------------*/
+  var ultimoScroll = 0;
+  $(window).on('load scroll', function(){
+	  var scrollPos = $(document).scrollTop();
+	  $('.idx-load-element').each(function () {
+	  	var $contentId = $("#"+$(this).attr('id'));
+	  	if(($contentId.offset().top-700) <= scrollPos ){
+	  		var $lazyElement = $contentId.find('.idx-blazy');
+	      if ($lazyElement.length) {
+	        if (!$lazyElement.hasClass('loaded')) {
+            $lazyElement.addClass('loaded');
+            loadElement($lazyElement);
+          }
+	      }	
+	  	}
+	  });
+	});
 
 }(jQuery));

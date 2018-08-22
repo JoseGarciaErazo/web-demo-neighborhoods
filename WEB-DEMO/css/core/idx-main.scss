@@ -10,6 +10,10 @@
 		padding: 120px 0 40px 0;
 	}
 
+	@media screen and (min-width: 768px){
+		min-height: calc(100vh - 50px);
+	}
+
 	article{
 		background-color: rgba($basic-color,.9);
 		padding: 20px;
@@ -84,13 +88,30 @@
 		}
 	}
 
-	.idx-layer-img{
+	.idx-wrap-img{
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
+		background-size: cover;
+		background-position: center;
+		background-color: #333;
+		img{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			opacity: 0;
+			transition: opacity .6s;
+		}
+		&.loaded{
+			img{
+				opacity: 1;
+			}
+		}
 	}
 
 	.idx-wrap{

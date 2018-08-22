@@ -20,11 +20,15 @@
 		width: 100%;
 		position: relative;
 		overflow: hidden;
+		background-color: #333;
+		background-size: cover;
+		background-position: center;
 		&:after{
 			content: "";
 			display: block;
 			padding-bottom: 74%;
 		}
+
 		&:before{
 			content: "";
 			display: block;
@@ -36,6 +40,7 @@
 			height: 100%;
 			background-color: rgba(0,0,0,0.15);
 		}
+
 		img{
 			position: absolute;
 			top: 0;
@@ -44,7 +49,14 @@
 			height: 100%;
 			object-fit: cover;
 			z-index: 0;
-			transition: transform 1s, -webkit-transform 1s;
+			transition: transform 1s, opacity .6s;
+			opacity: 0;
+		}
+
+		&.loaded{
+			img{
+				opacity: 1;
+			}
 		}
 	}
 
