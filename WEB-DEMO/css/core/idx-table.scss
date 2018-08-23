@@ -1,6 +1,22 @@
 /*----------------------------------------------------------------------------------*/
 /* Table
 /*----------------------------------------------------------------------------------*/
+.idx-wrap-table-ct{
+	&.row{
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+
+.idx-fx-table{
+	//display: flex;
+	margin-bottom: 15px;
+	.idx-wrap-table{
+		width: 100%;
+		height: 100%;
+	}
+}
+
 .idx-table-fx{
 	width: 100%;
 	background-color: #FFF;

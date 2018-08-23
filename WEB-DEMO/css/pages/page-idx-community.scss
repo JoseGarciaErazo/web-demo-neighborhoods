@@ -1,4 +1,5 @@
 #idx-page-community{
+/*
 
 	#overview{
 		padding-bottom: 0;
@@ -51,6 +52,9 @@
 		}
 	}
 
+	*/
+
+
 	#neighborhoods{
 		.idx-basic-list{
 			.idx-basic-item{
@@ -58,6 +62,7 @@
 					max-height: 0;
 					transition: max-height .3s ease-out;
 					overflow: hidden;
+					opacity: 0;
 				}
 			}
 			&.active{
@@ -65,6 +70,7 @@
 					&:nth-child(n+5){
 						max-height: 500px;
 						transition: max-height .4s ease-in;
+						opacity: 1;
 					}
 				}
 			}
