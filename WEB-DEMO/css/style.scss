@@ -1,9 +1,9 @@
-@import '../fonts/icons/style.css';
+@import '../fonts/icons/style.min.css';
+@import 'idx-colors.scss';
 
 @import 'core/greatslider.scss';
 @import 'core/reset.scss';
 @import 'core/idx-general.scss';
-@import 'core/idx-colors.scss';
 @import 'core/idx-main.scss';
 @import 'core/idx-inside-menu.scss';
 @import 'core/idx-grid-card.scss';
@@ -12,7 +12,7 @@
 @import 'core/idx-graphics.scss';
 @import 'core/idx-gs-slider.scss';
 
-@import 'core/bootstrap-3-grid.css';
+@import 'core/bootstrap-3-grid.min.css';
 /*----------------------------------------------------------------------------------*/
 /* Pages
 /*----------------------------------------------------------------------------------*/

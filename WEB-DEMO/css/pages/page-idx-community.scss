@@ -1,73 +1,38 @@
 #idx-page-community{
-/*
-
-	#overview{
-		padding-bottom: 0;
-		@media screen and (min-width: 768px){
-			.idx-wrap{
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: space-between;
-				.idx-wrap-slider{
-					width: 68%;
-				}
-				.idx-wrap-media{
-					width: 30%;
-				}
-				.idx-basic-description{
-					width: 100%;
-				}
-			}
-		}
-
-		@media screen and (min-width: 1024px){
-			padding-top: 80px;
-		}
-	}
-	
-	@media screen and (min-width: 991px){
-		.idx-wrap-table-ct{
-			display: flex;
-			justify-content: space-between;
-			flex-wrap: wrap;
-			margin-bottom: 15px;
-
-			#idx-table-data{
-				width: 40%;
-			}
-
-			#idx-table-price{
-				width: 58%;
-			}
-		}
-	}
-	
-	@media screen and (min-width: 1200px){
-		#neighborhoods{
-			.idx-basic-list{
-				.idx-basic-item{
-					width: 25%;
-				}
-			}
-		}
-	}
-
-	*/
-
-
 	#neighborhoods{
 		.idx-basic-list{
 			.idx-basic-item{
-				&:nth-child(n+5){
+				&:nth-child(n+2){
 					max-height: 0;
 					transition: max-height .3s ease-out;
 					overflow: hidden;
 					opacity: 0;
 				}
+				@media screen and (min-width: 768px){
+					&:nth-child(2){
+						max-height: 500px;
+						transition: max-height .4s ease-in;
+						opacity: 1;
+					}
+				}
+				@media screen and (min-width: 991px){
+					&:nth-child(3){
+						max-height: 500px;
+						transition: max-height .4s ease-in;
+						opacity: 1;
+					}
+				}
+				@media screen and (min-width: 1200px){
+					&:nth-child(4){
+						max-height: 500px;
+						transition: max-height .4s ease-in;
+						opacity: 1;
+					}
+				}
 			}
 			&.active{
 				.idx-basic-item{
-					&:nth-child(n+5){
+					&:nth-child(n+2){
 						max-height: 500px;
 						transition: max-height .4s ease-in;
 						opacity: 1;

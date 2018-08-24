@@ -187,7 +187,14 @@ function loadGenSlider(element){
 function graphGenerator(graphElement){
 	var graphElementData = JSON.parse($("#"+graphElement).attr('data-element'));
 	var graphElementLabels = JSON.parse($("#"+graphElement).attr('data-labels'));
+	var graphElementColors = $("#"+graphElement).attr('data-color');
 	var ctx = document.getElementById(graphElement).getContext('2d');
+	
+	var r = parseInt(graphElementColors.substring(0,2), 16);
+	var g = parseInt(graphElementColors.substring(2,4), 16);
+	var b = parseInt(graphElementColors.substring(4,6), 16);
+	var color = 'rgba(' + r + ', ' + g + ', ' + b + ',0.3)';
+
 	var myChart = new Chart(ctx, {
 	    type: 'bar',
 	    responsive: true,
@@ -196,7 +203,7 @@ function graphGenerator(graphElement){
         datasets: [{
           label: "",
           data: graphElementData,
-          backgroundColor: "rgba(101, 131, 193, 0.3)",
+          backgroundColor: color,
           borderWidth: 2,
         }]
 	    },

@@ -5,17 +5,15 @@
 	position: relative;
 	width: 100%;
 	height: auto;
+	display: flex;
+	align-items: center;
 	
-	@media screen and (min-width: 480px){
-		padding: 120px 0 40px 0;
-	}
-
 	@media screen and (min-width: 768px){
 		min-height: calc(100vh - 50px);
 	}
 
 	article{
-		background-color: rgba($basic-color,.9);
+		background-color: rgba($primary-color,.9);
 		padding: 20px;
 		position: relative;
 		z-index: 1;
@@ -25,6 +23,10 @@
 		margin-bottom: 40px;
 		max-width: 550px;
 		margin-left: 0;
+		@media screen and (min-width: 768px){
+			margin-top: 70px;
+			margin-bottom: 0;
+		}
 		h1{
 			font-size: 28px;
 			color: #FFF;
@@ -34,10 +36,10 @@
 			}
 		}
 
-		h2{
+		h2, h3, h4{
 			font-size: 12px;
 			font-weight: 700;
-			color: #6b83b3;
+			color: $primary-color-lighten;
 			text-transform: uppercase;
 			margin: 10px 0;
 			@media screen and (min-width: 991px){
@@ -66,7 +68,7 @@
 				min-width: 50%;
 				flex-grow: 1;
 				font-size: 12px;
-				color: #6b83b3;
+				color: $primary-color-lighten;
 				text-transform: uppercase;
 				font-weight: 700;
 				padding-right: 5px;

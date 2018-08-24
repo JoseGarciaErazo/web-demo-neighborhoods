@@ -1,0 +1,125 @@
+/*----------------------------------------------------------------------------------*/
+/* Colors (Colores a utilizar en el site)
+/*----------------------------------------------------------------------------------*/
+$primary-color: #2e384d;
+$primary-color-lighten: lighten($primary-color, 30%);
+$primary-color-darken: darken($primary-color, 30%);
+
+$secondary-color: #e6992e;
+$secondary-color-lighten: lighten($secondary-color, 30%);
+$secondary-color-darken: darken($secondary-color, 25%);
+
+$a-color: #29b1cc;
+$b-color: #666561;
+$c-color: #e6e4df;
+$d-color: #cc8829;
+
+/*----------------------------------------------------------------------------------*/
+/* Loading
+/*----------------------------------------------------------------------------------*/
+.loading{
+	&:before{
+		border: 10px solid #ccc;
+		border-top-color: $secondary-color;
+	}
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Boton ver más
+/*----------------------------------------------------------------------------------*/
+.idx-btn-sm{
+	color: $b-color;
+	background: $c-color;
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Boton link
+/*----------------------------------------------------------------------------------*/
+.idx-link-st{
+	color: $d-color;
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Boton de play
+/*----------------------------------------------------------------------------------*/
+.idx-btn-play{
+	background-color: #FFF;
+	span{
+		&:before{
+			color: $a-color;
+		}
+	}
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Grid Card
+/*----------------------------------------------------------------------------------*/
+.idx-grid-ng{
+	.idx-grid-ng-img{
+		background-color: #333;
+		.idx-grid-ng-information{
+			h2, h3{
+				color: #FFF;
+			}
+		}
+	}
+	.idx-grid-ng-btn{
+		a, button{
+			color: #FFF;
+			background: $a-color;
+			span{
+				&:before{
+					background-color: rgba(0,0,0,.15);
+				}
+			}
+		}
+	}
+	.idx-grid-ng-content{
+		a{
+			color: $primary-color-lighten;
+		}
+	}
+	.idx-grid-tag{
+    background: $secondary-color;
+    color: $secondary-color-darken
+	}
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Graphics
+/*----------------------------------------------------------------------------------*/
+.idx-graph{
+	.idx-wrap-canvas{
+		background-color: $primary-color;
+	}
+	.idx-wrap-legend{
+		.idx-graph-detail{
+			&:before{
+				background-color: $primary-color-lighten;
+			}
+		}
+	}
+}
+
+/*----------------------------------------------------------------------------------*/
+/* Slider de propiedades
+/*----------------------------------------------------------------------------------*/
+#idx-gs-slider{
+	.gs-container-navs{
+		.idx-gs-wrapper-bullets{
+			button{
+				&.idx-ico-play{
+					span{
+						&:before{
+							color: $a-color;
+						}
+					}
+				}
+			}
+		}
+	}
+	.idx-caption{
+		background-color: rgba($primary-color, 0.9);
+		color: #FFF;
+	}
+}

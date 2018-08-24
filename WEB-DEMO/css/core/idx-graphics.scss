@@ -9,7 +9,6 @@
 	.idx-wrap-canvas{
 		position: relative;
 		width: 100%;
-		background-color: #2e384d;
 		&:after{
 			content: "";
 			display: block;
@@ -41,7 +40,6 @@
 		.idx-graph-detail{
 			position: relative;
 			padding-left: 15px;
-			color: #757575;
 			font-family: $opensans;
 			font-size: 10px;
 			font-weight: 700;
@@ -55,7 +53,6 @@
 				top: 3px;
 				left: 0;
 				position: absolute;
-				background-color: rgba(#6b83b3,.7);
 				border-radius: 100%;
 			}
 		}

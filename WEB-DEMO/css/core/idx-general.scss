@@ -33,8 +33,6 @@ body{
 		width: 50px !important;
 		height: 50px !important;
 		border-radius: 50%;
-		border: 10px solid #ccc;
-		border-top-color: #e6992e;
 		border-width: 5px;
 		animation: spin 1s infinite linear;
 		z-index: 2;
@@ -176,8 +174,6 @@ body{
 /* Boton ver más
 /*----------------------------------------------------------------------------------*/
 .idx-btn-sm{
-	color: #666561;
-	background: #e6e4df;
 	height: 48px;
 	width: 100%;
 	font-size: 12px;
@@ -265,7 +261,6 @@ body{
 	font-size: 12px;
 	font-weight: 600;
 	text-transform: uppercase;
-	color: #cc8829;
 }
 
 /*----------------------------------------------------------------------------------*/
@@ -283,7 +278,6 @@ body{
 	height: 70px;
 	border-radius: 100%;
 	transition: all .3s ease !important;
-	background-color: #FFF;
 	opacity: .8;
 	text-indent: -99999px;
 	overflow: hidden;
@@ -305,10 +299,8 @@ body{
 			font-family: $web-icons;
 			font-size: 24px;
 			display: inline-block;
-			color: #29b1cc;
 		}
 	}
-
 	&:hover{
 		opacity: 1;
 	}
@@ -339,7 +331,7 @@ body{
 		font-size: 14px;
 		margin-bottom: 5px;
 		display: block;
-		color: #6b83b3;
+		color: $primary-color-lighten;
 	}
 	ul{
 		li{
@@ -352,7 +344,7 @@ body{
 				display: block;
 				width: 6px;
 				height: 6px;
-				background-color: #6b83b3;
+				background-color: $primary-color-lighten;
 				border-radius: 100%;
 				top: 8px;
 				left: 0;
@@ -380,7 +372,7 @@ body{
 		font-size: 14px;
 		margin-bottom: 5px;
 		display: block;
-		color: #6b83b3;
+		color: $primary-color-lighten;
 	}
 
 	@media screen and (min-width: 768px){
@@ -397,7 +389,7 @@ body{
 /* Media Nav
 /*----------------------------------------------------------------------------------*/
 .idx-media-nav{
-	background: #e6992e;
+	background: $secondary-color;
 	display: flex;
 	width: 100%;
 	align-items: flex-start;
@@ -406,7 +398,8 @@ body{
 		font-size: 12px;
 		font-weight: 700;
 		text-transform: uppercase;
-		color: rgba(0,0,0,0.4);
+		color: $secondary-color-darken;
+		/*color: rgba(0,0,0,0.4);*/
 		background-color: transparent;
 		&:hover,
 		&.active,
@@ -485,23 +478,11 @@ body{
 		display: block;
 		clear: both;
 	}
-	
 	.idx-basic-item{
 		float: left;
 		padding: 0 10px;
-		/*width: 100%;*/
 		display: flex;
-		/*@media screen and (min-width: 640px){
-			width: 50%;
-			margin-bottom: 10px;
-		}
-		@media screen and (min-width: 991px){
-			width: 33.33%;
-		}*/
 	}
-
-
-
 }
 
 /*----------------------------------------------------------------------------------*/
@@ -525,7 +506,6 @@ body{
 		max-width: 1024px;
 		width: 100%;
 		z-index: 2;
-    //transform: scale(0.7);
     transform: translateY(20%);
     opacity: 0;
     transition: all 0.3s;
@@ -602,20 +582,8 @@ body{
 	&.active{
 		opacity: 1;
 		.idx-iframe{
-			//transform: scale(1);
 			transform: translateY(0);
 			opacity: 1;
 		}
 	}
 }
-
-/*
-<div class="video-inside" style="left: 0px;">
-	<div class="iframe">
-		<iframe src="https://www.youtube.com/embed/Qux02q6tTZ4?autoplay=1" frameborder="0" allowfullscreen=""></iframe>
-	</div>
-	<button class="close-vi">
-		<span class="op-icon-close">x</span>
-	</button>
-	<div class="bg-close"></div>
-</div>*/

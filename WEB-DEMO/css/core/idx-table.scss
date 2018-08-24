@@ -9,7 +9,6 @@
 }
 
 .idx-fx-table{
-	//display: flex;
 	margin-bottom: 15px;
 	.idx-wrap-table{
 		width: 100%;
@@ -74,10 +73,9 @@
 			text-transform: uppercase;
 			display: inline-block;
 			margin-left: 10px;
-			color: #6b83b3;
+			color: $primary-color-lighten;
 		}
 	}
-
 	@media screen and (min-width: 768px){
 		padding: 20px;
 	}
